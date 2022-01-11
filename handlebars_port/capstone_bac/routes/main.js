@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET main page. */
 router.get('/', function (req, res, next) {
-    res.render('main');
+    res.render('main', { title: 'Policies' });
 });
 
 
