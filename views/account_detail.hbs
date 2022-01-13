@@ -4,31 +4,44 @@ This is the template for the individual accounts.
 
 {{#with account}}
 <div class="container">
-        <div class="card">
-            <span class="card-title"><h1>{{account_name}}</h1></span>
-        
-        </div>
-        <div class="card-content">
-            <table class="centered responsive-table">
-                <thead>
-                    <tr>
-                        <th>Account Name </th>
-                        <th>Office </th>
-                        <th>Broker </th>
-                        <th>Client Advocate </th>
-                        <th>Industry</th>
-                        <th>Revenue</th>
-                        <th>Global Footprint</th>
-                        <th>Limits</th>
-                        <th>Losses</th>
-                        <th>Retentions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td> <a href=/'accounts?filter=office:{{account_office}}'>{{</a></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+    <div class="card">
+        <span class="card-title">
+            <h1>{{account_name}}</h1>
+        </span>
+
+    </div>
+    <div class="card-content">
+        <table class="centered responsive-table">
+            <thead>
+                <tr>
+                    <th>Account Name </th>
+                    <th>Office </th>
+                    <th>Broker </th>
+                    <th>Client Advocate </th>
+                    <th>Industry</th>
+                    <th>Revenue</th>
+                    <th>Global Footprint</th>
+                    <th>Limits</th>
+                    <th>Losses</th>
+                    <th>Retentions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> <a>{{account_office}}</a></td>
+                    <td> <a>{{account_broker}}</a></td>
+                    <td> <a>{{account_clientAdvocate}}</a></td>
+                    <td> <a>{{account_industry}}</a></td>
+                    <td> <a>{{account_revenue}}</a></td>
+                    <td> <a>{{account_footprint}}</a></td>
+                    <td> <a>{{account_limits}}</a></td>
+                    <td> <a>{{account_losses}}</a></td>
+                    <td> <a>{{account_retentions}}</a></td>
+
+                </tr>
+
+            </tbody>
+        </table>
+        <div class="container account-details">{{account_details}}</div>
+    </div>
 </div>
