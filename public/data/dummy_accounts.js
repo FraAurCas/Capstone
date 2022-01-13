@@ -10,6 +10,6 @@ module.exports = [
         "account_footprint": 1,
         "account_limits": "$50,000",
         "account_losses": "$2,500",
-        "account_retentions": "1"
+        "account_retentions": "$1"
     }
 ]
