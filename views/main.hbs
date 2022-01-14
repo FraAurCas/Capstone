@@ -33,16 +33,13 @@
         </thead>
         <tbody>
             <tr>
-                <td>Bergen County Academies</td>
-                <td>Wayne Plaza II</td>
-                <td>Mr. Roberts</td>
-                <td>Mr. Mills</td>
-                <td>$139842</td>
-                <td>$32853</td>
-                <td>$198</td>
-                <td>$319031</td>
-                <td>$13042</td>
-                <td>$11</td>
+                {{#each array}}
+                <tr>
+                    {{#each this}}
+                    <td>{{this}}</td>
+                    {{/each}}
+                </tr>
+                {{/each}}
             </tr>
         </tbody>
     </table>
