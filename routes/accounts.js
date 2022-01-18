@@ -4,7 +4,7 @@ module.exports = router;
 
 var accounts_data = require('../data/dummy_accounts');
 
-// GET the main page wip from Anton
+// GET some main accounts page, might not be needed
 /*router.get('/', function(req, res, next){
 
 });

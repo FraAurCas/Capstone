@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 module.exports = router;
 
-var account_data = require('../public/data/dummy_accounts');
+var account_data = require('../data/dummy_accounts');
 
 //Make the data palatable for the page
 let mask = (({
@@ -33,7 +33,4 @@ let mask = (({
 /* GET main page. */
 router.get('/', function (req, res, next) {
     res.render('main', { title: 'Policies', array: mask(account_data) });
-});
-
-
-module.exports = router;
+}); 
