@@ -21,7 +21,9 @@
     <table class="highlight centered responsive-table">
         <thead>
             <th>Client Name</th>
-            <th>Office/Market</th>
+            {{#if include_office}}
+                <th>Office/Market</th>
+            {{/if}}
             <th>Placement Broker</th>
             <th>Client Advocate/Account Executive</th>
             <th>SIC Code/Industry</th>
@@ -46,13 +48,18 @@
 </div>
 
 <div class="sidebar">
+    {{#if include_office}}
+    <a href="?include_office=false">
+        <p>Including Office</p>
+    </a>
+    {{else}}
+    <a href="?include_office=true">
+        <p>Excluding Office</p>
+    </a>
+    {{/if}}
     <form action="#">
-        <p>
-            <label>
-                <input type="checkbox" class="filled-in" checked="checked" />
-                <span>Office/Market</span>
-            </label>
-        </p>
+        
+        
         <p>
             <label>
                 <input type="checkbox" class="filled-in" checked="checked" />
