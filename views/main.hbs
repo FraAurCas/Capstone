@@ -24,7 +24,9 @@
             {{#if include_office}}
                 <th>Office/Market</th>
             {{/if}}
-            <th>Placement Broker</th>
+            {{#if include_broker}}
+                <th>Placement Broker</th>
+            {{/if}}
             <th>Client Advocate/Account Executive</th>
             <th>SIC Code/Industry</th>
             <th>Revenue (Band)</th>
@@ -57,6 +59,17 @@
         <p>Excluding Office</p>
     </a>
     {{/if}}
+
+    {{#if include_broker}}
+    <a href="?include_broker=false">
+        <p>Including Broker</p>
+    </a>
+    {{else}}
+    <a href="?include_broker=true">
+        <p>Excluding Broker</p>
+    </a>
+    {{/if}}
+
     <form action="#">
         
         
