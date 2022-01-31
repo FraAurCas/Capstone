@@ -50,24 +50,19 @@
 </div>
 
 <div class="sidebar">
+
+    <p></p>
     {{#if include_office}}
-    <a href="?include_office=false">
-        <p>Including Office</p>
-    </a>
+        <a onclick="addUrlParameter('include_office', 'false')">Including Office</a>
     {{else}}
-    <a href="?include_office=true">
-        <p>Excluding Office</p>
-    </a>
+        <a onclick="addUrlParameter('include_office', 'true')">Excluding Office</a>
     {{/if}}
 
+    <p></p>
     {{#if include_broker}}
-    <a href="?include_broker=false">
-        <p>Including Broker</p>
-    </a>
+        <a onclick="addUrlParameter('include_broker', 'false')">Including Broker</a>
     {{else}}
-    <a href="?include_broker=true">
-        <p>Excluding Broker</p>
-    </a>
+        <a onclick="addUrlParameter('include_broker', 'true')">Excluding Broker</a>
     {{/if}}
 
     <form action="#">

@@ -43,6 +43,14 @@
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="javascripts/materialize.js"></script>
   <script src="js/init.js"></script>
+
+  <script> //Allows adding URL Paramaters. Makes development nice.
+    function addUrlParameter(name, value) {
+      var searchParams = new URLSearchParams(window.location.search)
+      searchParams.set(name, value)
+      window.location.search = searchParams.toString()
+    }
+  </script>
   
   <!--JavaScript at end of body for optimized loading-->
   <script type="text/javascript" src="javascripts/materialize.min.js"></script>
