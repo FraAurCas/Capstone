@@ -7,11 +7,12 @@
     "devstart": "nodemon ./bin/www"
   },
   "dependencies": {
+    "@azure/msal-node": "^1.5.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "hammerjs": "^2.0.8",
-    "hbs": "~4.0.4",
+    "hbs": "^4.2.0",
     "http-errors": "~1.6.3",
     "jquery": "^3.6.0",
     "materialize": "^1.0.0",
@@ -21,5 +22,18 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
-  }
+  },
+  "description": "<p align=\"center\">\r   <a href=\"http://materializecss.com/\">\r     <img src=\"http://materializecss.com/res/materialize.svg\" width=\"150\">\r   </a>\r </p>",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FraAurCas/Capstone.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FraAurCas/Capstone/issues"
+  },
+  "homepage": "https://github.com/FraAurCas/Capstone#readme"
 }
