@@ -58,12 +58,19 @@ router.get('/', function (req, res, next) {
     }
     query_string = query_string.substring(0, query_string.length - 2); //Remove extraneous comma
 
-    query_string += " FROM test_accounts;"; //"WHERE name LIKE '<search>%'"
-    console.log(query_string);
+    query_string += " FROM test_accounts";
+
+    if (req.query.search || '' !== '') {
+        var escaped_search = con.escape(req.query.search); //TODO: This may not work
+        query_string += " WHERE name LIKE '%" + escaped_search.substring(1, escaped_search.length -1) + "%'";
+    }
     
+    query_string += ";";
+
+    console.log(query_string);
+
     con.query(query_string, function (err, result, fields) {
         if (err) throw err;
-        console.log(query_string);
         res.render('main', { title: 'Policies', array: result, include_office: include_office, include_broker: include_broker, include_executive: include_executive, include_industry: include_industry, include_revenue: include_revenue, include_footprint: include_footprint, include_limits: include_limits, include_losses: include_losses, include_retentions: include_retentions});
     });    
 });

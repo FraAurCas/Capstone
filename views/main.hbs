@@ -20,8 +20,8 @@
     <!-- https://materializecss.com/table.html -->
 
     <div > <!-- Searchbar -->
-        <input type="text" placeholder="Search..">
-        <a class="waves-effect waves-light btn-small navbar">Search</a>
+        <input type="text" placeholder="Search.." id="searchbox">
+        <a class="waves-effect waves-light btn-small navbar" onclick="addUrlParameter('search', document.getElementById('searchbox').value)">Search</a>
     </div>
 
     <table class="highlight centered responsive-table">
