@@ -4,7 +4,7 @@ var router = express.Router();
 var mysql = require('mysql');
 
 var con = mysql.createConnection({
-    host: "localhost",
+    host: "devdb.c9lxwufrjy46.us-east-1.rds.amazonaws.com",
     user: "root",
     password: "Cas2Boh2Mas",
     database: "DevDB"
@@ -47,13 +47,13 @@ router.get('/:account_id', function(req,res,next){
     con.query(individualQueryString, function (err, result, fields){
         if (err) throw err;
         let account = result;
-        console.log("--------------");
-        console.log(account);
-        console.log("--------------");    
-        console.log(account[0].name);
-        var tabName = account[0].name;
-        console.log("--------------");
-        console.log(tabName);
+        // console.log("--------------");
+        // console.log(account);
+        // console.log("--------------");    
+        // console.log(account[0].name);
+        // var tabName = account[0].name;
+        // console.log("--------------");
+        // console.log(tabName);
         // console.log(result[0]);
         // console.log("--------------");
         // console.log(result[0].name);
