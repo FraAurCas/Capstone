@@ -33,7 +33,12 @@ con.connect(function (err) {
         console.log("Table Cleared");
     });
 
-    var sql = "INSERT INTO test_accounts (id, name, office, broker, clientAdvocate, industry, revenue, footprint, limits, losses, retentions) VALUES (1, 'Bergen County Academies', 'Wayne Plaza II', 'Roberts', 'Bobs', 'Education', 12, 1, 50000, 2500, 1)";
+    var sql = "INSERT INTO test_accounts (id, name, office, broker, clientAdvocate, industry, revenue, footprint, limits, losses, retentions) VALUES (0, 'Bergen County Academies', 'Wayne Plaza II', 'Roberts', 'Bobs', 'Education', 12, 1, 50000, 2500, 1)";
+    con.query(sql, function (err, result) {
+        if (err) throw err;
+        console.log("1 record inserted");
+    });
+    var sql = "INSERT INTO test_accounts (id, name, office, broker, clientAdvocate, industry, revenue, footprint, limits, losses, retentions) VALUES (1, 'Bergen Bounty Bacademies', 'Wayne Plaza II', 'Roberts', 'Bobs', 'Education', 12, 1, 50000, 2500, 1)";
     con.query(sql, function (err, result) {
         if (err) throw err;
         console.log("1 record inserted");

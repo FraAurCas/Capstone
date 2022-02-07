@@ -1,46 +1,41 @@
-{{#with account}}
 <div class="container">
     <div class="card purple lighten-5">
         <span class="card-title">
-            <h1>{{account_name}}</h1>
+            <h1>{{array.0.name}}</h1>
         </span>
     </div>
-    <div class="container">
-        <div class="card-content">
-            <table class="highlight centered responsive-table">
-                <thead>
-                    <tr>
-                        <th>Account Name </th>
-                        <th>Office </th>
-                        <th>Broker </th>
-                        <th>Client Advocate </th>
-                        <th>Industry</th>
-                        <th>Revenue</th>
-                        <th>Global Footprint</th>
-                        <th>Limits</th>
-                        <th>Losses</th>
-                        <th>Retentions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td> {{account_office}}</td>
-                        <td> {{account_broker}}</td>
-                        <td> {{account_clientAdvocate}}</td>
-                        <td> {{account_industry}}</td>
-                        <td> {{account_revenue}}</td>
-                        <td> {{account_footprint}}</td>
-                        <td> {{account_limits}}</td>
-                        <td> {{account_losses}}</td>
-                        <td> {{account_retentions}}</td>
-
-                    </tr>
-
-                </tbody>
-            </table>
-            <div class="container account-details">{{account_details}}</div>
-        </div>
-    </div>
 </div>
-
-{{/with}}
+<!--<div class="card-content">-->
+<div class="container">
+    <table class="highlight centered responsive-table">
+        <thead>
+            <tr>
+                <th>Office </th>
+                <th>Broker </th>
+                <th>Client Advocate </th>
+                <th>Industry</th>
+                <th>Revenue</th>
+                <th>Global Footprint</th>
+                <th>Limits</th>
+                <th>Losses</th>
+                <th>Retentions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{array.0.office}}</td>
+                <td>{{array.0.broker}}</td>
+                <td>{{array.0.clientAdvocate}}</td>
+                <td>{{array.0.industry}}</td>
+                <td>{{array.0.revenue}}</td>
+                <td>{{array.0.footprint}}</td>
+                <td>{{array.0.limits}}</td>
+                <td>{{array.0.losses}}</td>
+                <td>{{array.0.retentions}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="container account-details">{{"Here we can have more text for a description"}}</div>
+</div>
+</div>

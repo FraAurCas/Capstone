@@ -31,6 +31,7 @@ router.get('/', function (req, res, next) {
     con.query(query_string, function (err, result, fields) {
         if (err) throw err;
         account_data = result;
+        console.log(result);
     });
     
     res.render('main', { title: 'Policies', array: account_data, include_office: include_office });
