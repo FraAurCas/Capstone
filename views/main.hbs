@@ -19,51 +19,75 @@
 
     <!-- https://materializecss.com/table.html -->
 
-    <div > <!-- Searchbar -->
+    <div>
+        <!-- Searchbar -->
         <input type="text" placeholder="Search.." id="searchbox">
-        <a class="waves-effect waves-light btn-small navbar" onclick="addUrlParameter('search', document.getElementById('searchbox').value)">Search</a>
+        <a class="waves-effect waves-light btn-small navbar"
+            onclick="addUrlParameter('search', document.getElementById('searchbox').value)">Search</a>
     </div>
 
     <table class="highlight centered responsive-table">
         <thead>
             <th>Client Name</th>
             {{#if include_office}}
-                <th>Office/Market</th>
+            <th>Office/Market</th>
             {{/if}}
             {{#if include_broker}}
-                <th>Placement Broker</th>
+            <th>Placement Broker</th>
             {{/if}}
             {{#if include_executive}}
-                <th>Client Advocate/Account Executive</th>
+            <th>Client Advocate/Account Executive</th>
             {{/if}}
             {{#if include_industry}}
-                <th>SIC Code/Industry</th>
+            <th>SIC Code/Industry</th>
             {{/if}}
             {{#if include_revenue}}
-                <th>Revenue (Band)</th>
+            <th>Revenue (Band)</th>
             {{/if}}
             {{#if include_footprint}}
-                <th>Global Footprint (Number of Countries)</th>
+            <th>Global Footprint (Number of Countries)</th>
             {{/if}}
             {{#if include_limits}}
-                <th>Limits</th>
+            <th>Limits</th>
             {{/if}}
             {{#if include_losses}}
-                <th>Losses</th>
-            {{/if}}
-            {{#if include_retentions}}
-                <th>Retentions</th>
+            <th>Losses</th>
             {{/if}}
         </thead>
         <tbody>
             <tr>
                 {{#each array}}
-                <tr>
-                    {{#each this}}
-                    <td>{{this}}</td>
-                    {{/each}}
-                </tr>
-                {{/each}}
+            <tr>
+                <td>{{this.name}}</td>
+                {{#if include_office}}
+                <td>{{this.office}}</td>
+                {{/if}}
+                {{#if include_broker}}
+                <td>{{this.broker}}</td>
+                {{/if}}
+                {{#if include_executive}}
+                <td>{{this.clientAdvocate}}</td>
+                {{/if}}
+                {{#if include_industry}}
+                <td>{{this.industry}}</td>
+                {{/if}}
+                {{#if include_footprint}}
+                <td>{{this.revenue}}</td>
+                {{/if}}
+                {{#if include_footprint}}
+                <td>{{this.footprint}}</td>
+                {{/if}}
+                {{#if include_limits}}
+                <td>{{this.limits}}</td>
+                {{/if}}
+                {{#if include_losses}}
+                <td>{{this.losses}}</td>
+                {{/if}}
+                {{#if include_retentions}}
+                <td>{{this.retentions}}</td>
+                {{/if}}
+            </tr>
+            {{/each}}
             </tr>
         </tbody>
     </table>
@@ -73,65 +97,65 @@
 
     <p></p>
     {{#if include_office}}
-        <a onclick="addUrlParameter('include_office', 'false')">Including Office</a>
+    <a onclick="addUrlParameter('include_office', 'false')">Including Office</a>
     {{else}}
-        <a onclick="addUrlParameter('include_office', 'true')">Excluding Office</a>
+    <a onclick="addUrlParameter('include_office', 'true')">Excluding Office</a>
     {{/if}}
 
     <p></p>
     {{#if include_broker}}
-        <a onclick="addUrlParameter('include_broker', 'false')">Including Broker</a>
+    <a onclick="addUrlParameter('include_broker', 'false')">Including Broker</a>
     {{else}}
-        <a onclick="addUrlParameter('include_broker', 'true')">Excluding Broker</a>
+    <a onclick="addUrlParameter('include_broker', 'true')">Excluding Broker</a>
     {{/if}}
 
     <p></p>
     {{#if include_executive}}
-        <a onclick="addUrlParameter('include_executive', 'false')">Including Placement Broker</a>
+    <a onclick="addUrlParameter('include_executive', 'false')">Including Placement Broker</a>
     {{else}}
-        <a onclick="addUrlParameter('include_executive', 'true')">Excluding Placement Broker</a>
+    <a onclick="addUrlParameter('include_executive', 'true')">Excluding Placement Broker</a>
     {{/if}}
 
     <p></p>
     {{#if include_industry}}
-        <a onclick="addUrlParameter('include_industry', 'false')">Including SIC Code/Industry</a>
+    <a onclick="addUrlParameter('include_industry', 'false')">Including SIC Code/Industry</a>
     {{else}}
-        <a onclick="addUrlParameter('include_industry', 'true')">Excluding SIC Code/Industry</a>
+    <a onclick="addUrlParameter('include_industry', 'true')">Excluding SIC Code/Industry</a>
     {{/if}}
 
     <p></p>
     {{#if include_revenue}}
-        <a onclick="addUrlParameter('include_revenue', 'false')">Including Revenue</a>
+    <a onclick="addUrlParameter('include_revenue', 'false')">Including Revenue</a>
     {{else}}
-        <a onclick="addUrlParameter('include_revenue', 'true')">Excluding Revenue</a>
+    <a onclick="addUrlParameter('include_revenue', 'true')">Excluding Revenue</a>
     {{/if}}
 
     <p></p>
     {{#if include_footprint}}
-        <a onclick="addUrlParameter('include_footprint', 'false')">Including Global Footprint</a>
+    <a onclick="addUrlParameter('include_footprint', 'false')">Including Global Footprint</a>
     {{else}}
-        <a onclick="addUrlParameter('include_footprint', 'true')">Excluding Global Footprint</a>
+    <a onclick="addUrlParameter('include_footprint', 'true')">Excluding Global Footprint</a>
     {{/if}}
 
     <p></p>
     {{#if include_limits}}
-        <a onclick="addUrlParameter('include_limits', 'false')">Including Limits</a>
+    <a onclick="addUrlParameter('include_limits', 'false')">Including Limits</a>
     {{else}}
-        <a onclick="addUrlParameter('include_limits', 'true')">Excluding Limits</a>
+    <a onclick="addUrlParameter('include_limits', 'true')">Excluding Limits</a>
     {{/if}}
 
     <p></p>
     {{#if include_losses}}
-        <a onclick="addUrlParameter('include_losses', 'false')">Including Losses</a>
+    <a onclick="addUrlParameter('include_losses', 'false')">Including Losses</a>
     {{else}}
-        <a onclick="addUrlParameter('include_losses', 'true')">Excluding Losses</a>
+    <a onclick="addUrlParameter('include_losses', 'true')">Excluding Losses</a>
     {{/if}}
 
     <p></p>
     {{#if include_retentions}}
-        <a onclick="addUrlParameter('include_retentions', 'false')">Including Retentions</a>
+    <a onclick="addUrlParameter('include_retentions', 'false')">Including Retentions</a>
     {{else}}
-        <a onclick="addUrlParameter('include_retentions', 'true')">Excluding Retentions</a>
+    <a onclick="addUrlParameter('include_retentions', 'true')">Excluding Retentions</a>
     {{/if}}
 
 </div>
