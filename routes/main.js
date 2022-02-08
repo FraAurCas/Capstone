@@ -58,7 +58,7 @@ router.get('/', function (req, res, next) {
     }
     query_string = query_string.substring(0, query_string.length - 2); //Remove extraneous comma
 
-    query_string += " FROM test_accounts";
+    query_string += " FROM devData";
 
     if (req.query.search || '' !== '') {
         var escaped_search = con.escape(req.query.search); //TODO: This may not work
