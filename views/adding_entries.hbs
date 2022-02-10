@@ -8,61 +8,61 @@
 
         <div class="row">
             <div class="input-field col s6">
-                <input type="text" id="entry_name" name="entry_name" class="validate" data-length="32" required>
-                <label for="login_id">Client Name</label>
+                <input type="text" id="entry_ID" name="entry_ID" class="validate" data-length="32" required>
+                <label for="login_id">Client ID</label>
             </div>
             <div class="input-field col s6">
-                <input type="text" id="entry_office" name="office" class="validate" data-length="32" required>
-                <label for="login_id">Office / Market</label>
+                <input type="text" id="entry_segment" name="entry_segment" class="validate" data-length="32" required>
+                <label for="login_id">Broking Segment</label>
             </div>
         </div>
 
         <div class="row">
             <div class="input-field col s6">
-                <input type="text" id="entry_broker" name="entry_broker" class="validate" data-length="32" required>
-                <label for="password">Placement Broker</label>
+                <input type="text" id="entry_region" name="entry_region" class="validate" data-length="32" required>
+                <label for="password">Broker Region</label>
             </div>            
             <div class="input-field col s6">
-                <input type="text" id="entry_advocate" name="entry_advocate" class="validate" data-length="32" required>
-                <label for="password">Entry Advocate</label>
+                <input type="text" id="entry_industry" name="entry_industry" class="validate" data-length="32" required>
+                <label for="password">Entry Industry</label>
             </div>
         </div>
         
         <div class="row">
             <div class="input-field col s6">
-                <input type="text" id="entry_SIC" name="entry_SIC" class="validate" data-length="32" required>
-                <label for="password">SIC Code</label>
+                <input type="text" id="entry_hazard" name="entry_hazard" class="validate" data-length="32" required>
+                <label for="password">Hazard Entry</label>
             </div>    
             <div class="input-field col s6">
                 <input type="text" id="entry_revenue" name="entry_revenue" class="validate" data-length="32" required>
-                <label for="password">Revenue (Band)</label>
+                <label for="password">Global Revenue</label>
             </div>
         </div>
 
         <div class="row">
             <div class="input-field col s6">
-                <input type="text" id="entry_NOC" name="entry_NOC" class="validate" data-length="32" required>
-                <label for="password">Number of Countries</label>
+                <input type="text" id="entry_units" name="entry_units" class="validate" data-length="32" required>
+                <label for="password">Power Units</label>
             </div>
             <div class="input-field col s6">
-                <input type="text" id="entry_limit" name="entry_limit" class="validate" data-length="32" required>
-                <label for="password">Limits</label>
+                <input type="text" id="entry_TIV" name="entry_TIV" class="validate" data-length="32" required>
+                <label for="password">Total Insurable Value</label>
             </div>
         </div>
         
         <div class="row">
             <div class="input-field col s6">
-                <input type="text" id="entry_loss" name="entry_loss" class="validate" data-length="32" required>
-                <label for="password">Losses</label>
+                <input type="text" id="entry_payroll" name="entry_payroll" class="validate" data-length="32" required>
+                <label for="password">Payroll</label>
             </div> 
             <div class="input-field col s6">
-                <input type="text" id="entry_retention" name="entry_retention" class="validate" data-length="32" required>
-                <label for="password">Retentions</label>
+                <input type="text" id="entry_exposure" name="entry_exposure" class="validate" data-length="32" required>
+                <label for="password">Catastrophe Exposure</label>
             </div>
         </div>
 
         <div class="button_wrapper">
-            <button class="submit waves-effect waves-light btn" onclick="addEntry(entry_name, entry_office, entry_broker, entry_advocate, entry_SIC, entry_revenue, entry_NOC, entry_limit, entry_loss, entry_retention)" type="submit">
+            <button class="submit waves-effect waves-light btn" onclick="addEntry()" type="submit">
                 Submit
                 </button>
         </div>
@@ -73,8 +73,29 @@
 </div>
 
 <script>     
-    function addEntry(var Ename, var office, var broker, var clientAdvocate, var industry, var revenue, var footprint, var limits, var losses, var retentions) { 
-        var sql = "INSERT INTO test_accounts (1, "+Ename+", "+office+", "+broker+", "+clientAdvocate+", "+industry+", "+revenue+", "+footprint+", "+limits+", "+losses+", "+retentions+"")";
+    function addEntry() { 
+
+        console.log("hello world!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
+        const entry_ID = document.getElementById("entry_ID");
+        const entry_segment = document.getElementById("entry_segment");
+        
+        const entry_region = document.getElementById("entry_region");
+        const entry_industry = document.getElementById("entry_industry");
+        
+        const entry_hazard = document.getElementById("entry_hazard");
+        const entry_revenue = document.getElementById("entry_revenue");
+        
+        const entry_units = document.getElementById("entry_units");
+        const entry_TIV = document.getElementById("entry_TIV");
+        
+        const entry_payroll = document.getElementById("entry_payroll");
+        const entry_office = document.getElementById("entry_office");
+        
+        const entry_payroll = document.getElementById("entry_payroll");
+        const entry_exposure = document.getElementById("entry_exposure");
+
+        var sql = "INSERT INTO test_accounts ("+entry_ID+", "+entry_segment+", "+entry_region+", "+entry_industry+", "+entry_hazard+", "+entry_revenue+", "+entry_units+", "+entry_TIV+", "+entry_payroll+", "+entry_payroll+", "+entry_exposure+"")";
         console.log(sql);
         con.query(sql, function (err, result) {
             if (err) throw err;
