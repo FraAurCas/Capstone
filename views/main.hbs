@@ -9,7 +9,7 @@
     <div class="row">
     <div class="col l3 s12 "> <i class="left material-icons">sort</i>Sorted by: Yes!</div>
     <div class="col l3 offset-l6 ">
-        Position diffeently (left) for mobile 
+        Position diffeently (left) for mobile
         <div class="right hide-on-small-only"><i class="left material-icons">filter_list</i>Filter: None</div>
         <div class="left hide-on-med-and-up"><i class="left material-icons">filter_list</i>Filter: None</div>
     </div>
@@ -28,69 +28,44 @@
 
     <table class="highlight centered responsive-table">
         <thead>
-            <th>Client Name</th>
-            {{#if include_office}}
-            <th>Office/Market</th>
+            <th>ID</th>
+            {{#if include_segment}}
+                <th>Broking Segment</th>
             {{/if}}
-            {{#if include_broker}}
-            <th>Placement Broker</th>
-            {{/if}}
-            {{#if include_executive}}
-            <th>Client Advocate/Account Executive</th>
+            {{#if include_region}}
+                <th>Broking Region</th>
             {{/if}}
             {{#if include_industry}}
-            <th>SIC Code/Industry</th>
+                <th>Industry</th>
+            {{/if}}
+            {{#if include_hazardGroup}}
+                <th>Hazard Group</th>
             {{/if}}
             {{#if include_revenue}}
-            <th>Revenue (Band)</th>
+                <th>Global Revenue</th>
             {{/if}}
-            {{#if include_footprint}}
-            <th>Global Footprint (Number of Countries)</th>
+            {{#if include_powerUnits}}
+                <th>Power Units</th>
             {{/if}}
-            {{#if include_limits}}
-            <th>Limits</th>
+            {{#if include_insurableVaue}}
+                <th>Total Insurable Value</th>
             {{/if}}
-            {{#if include_losses}}
-            <th>Losses</th>
+            {{#if include_payroll}}
+                <th>Payroll</th>
             {{/if}}
-            {{#if include_retentions}}
-            <th>Retentions</th>
+            {{#if include_catastrophe}}
+                <th>Catastrophe Exposure</th>
             {{/if}}
         </thead>
         <tbody>
             <tr>
                 {{#each array}}
-            <tr>
-                <td>{{this.name}}</td>
-                {{#if include_office}}
-                <td>{{this.office}}</td>
-                {{/if}}
-                {{#if include_broker}}
-                <td>{{this.broker}}</td>
-                {{/if}}
-                {{#if include_executive}}
-                <td>{{this.clientAdvocate}}</td>
-                {{/if}}
-                {{#if include_industry}}
-                <td>{{this.industry}}</td>
-                {{/if}}
-                {{#if include_footprint}}
-                <td>{{this.revenue}}</td>
-                {{/if}}
-                {{#if include_footprint}}
-                <td>{{this.footprint}}</td>
-                {{/if}}
-                {{#if include_limits}}
-                <td>{{this.limits}}</td>
-                {{/if}}
-                {{#if include_losses}}
-                <td>{{this.losses}}</td>
-                {{/if}}
-                {{#if include_retentions}}
-                <td>{{this.retentions}}</td>
-                {{/if}}
-            </tr>
-            {{/each}}
+                <tr>
+                    {{#each this}}
+                    <td onclick="location.href='/account/{{this.id}}'">{{this}}</td>
+                    {{/each}}
+                </tr>
+                {{/each}}
             </tr>
         </tbody>
     </table>
@@ -99,31 +74,31 @@
 <div class="sidebar">
 
     <p></p>
-    {{#if include_office}}
-    <a onclick="addUrlParameter('include_office', 'false')">Including Office</a>
+    {{#if include_segment}}
+        <a onclick="addUrlParameter('include_segment', 'false')">Including Segment</a>
     {{else}}
-    <a onclick="addUrlParameter('include_office', 'true')">Excluding Office</a>
+        <a onclick="addUrlParameter('include_segment', 'true')">Excluding Segment</a>
     {{/if}}
 
     <p></p>
-    {{#if include_broker}}
-    <a onclick="addUrlParameter('include_broker', 'false')">Including Broker</a>
+    {{#if include_region}}
+        <a onclick="addUrlParameter('include_region', 'false')">Including Region</a>
     {{else}}
-    <a onclick="addUrlParameter('include_broker', 'true')">Excluding Broker</a>
-    {{/if}}
-
-    <p></p>
-    {{#if include_executive}}
-    <a onclick="addUrlParameter('include_executive', 'false')">Including Placement Broker</a>
-    {{else}}
-    <a onclick="addUrlParameter('include_executive', 'true')">Excluding Placement Broker</a>
+        <a onclick="addUrlParameter('include_region', 'true')">Excluding Region</a>
     {{/if}}
 
     <p></p>
     {{#if include_industry}}
-    <a onclick="addUrlParameter('include_industry', 'false')">Including SIC Code/Industry</a>
+        <a onclick="addUrlParameter('include_industry', 'false')">Including Industry</a>
     {{else}}
-    <a onclick="addUrlParameter('include_industry', 'true')">Excluding SIC Code/Industry</a>
+        <a onclick="addUrlParameter('include_industry', 'true')">Excluding Industry</a>
+    {{/if}}
+
+    <p></p>
+    {{#if include_hazardGroup}}
+        <a onclick="addUrlParameter('include_hazardGroup', 'false')">Including Hazard Group</a>
+    {{else}}
+        <a onclick="addUrlParameter('include_hazardGroup', 'true')">Excluding Hazard Group</a>
     {{/if}}
 
     <p></p>
@@ -134,31 +109,31 @@
     {{/if}}
 
     <p></p>
-    {{#if include_footprint}}
-    <a onclick="addUrlParameter('include_footprint', 'false')">Including Global Footprint</a>
+    {{#if include_powerUnits}}
+        <a onclick="addUrlParameter('include_powerUnits', 'false')">Including Power Units</a>
     {{else}}
-    <a onclick="addUrlParameter('include_footprint', 'true')">Excluding Global Footprint</a>
+        <a onclick="addUrlParameter('include_powerUnits', 'true')">Excluding Power Units</a>
     {{/if}}
 
     <p></p>
-    {{#if include_limits}}
-    <a onclick="addUrlParameter('include_limits', 'false')">Including Limits</a>
+    {{#if include_insurableVaue}}
+        <a onclick="addUrlParameter('include_insurableVaue', 'false')">Including Insurable Value</a>
     {{else}}
-    <a onclick="addUrlParameter('include_limits', 'true')">Excluding Limits</a>
+        <a onclick="addUrlParameter('include_insurableVaue', 'true')">Excluding Insurable Value</a>
     {{/if}}
 
     <p></p>
-    {{#if include_losses}}
-    <a onclick="addUrlParameter('include_losses', 'false')">Including Losses</a>
+    {{#if include_payroll}}
+        <a onclick="addUrlParameter('include_payroll', 'false')">Including Payroll</a>
     {{else}}
-    <a onclick="addUrlParameter('include_losses', 'true')">Excluding Losses</a>
+        <a onclick="addUrlParameter('include_payroll', 'true')">Excluding Payroll</a>
     {{/if}}
 
     <p></p>
-    {{#if include_retentions}}
-    <a onclick="addUrlParameter('include_retentions', 'false')">Including Retentions</a>
+    {{#if include_catastrophe}}
+        <a onclick="addUrlParameter('include_retentions', 'false')">Including Catastrophe</a>
     {{else}}
-    <a onclick="addUrlParameter('include_retentions', 'true')">Excluding Retentions</a>
+        <a onclick="addUrlParameter('include_retentions', 'true')">Excluding Catastrophe</a>
     {{/if}}
 
 </div>
