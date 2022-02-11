@@ -1,17 +1,5 @@
-<script>     
-
-    var mysql = require('mysql');
-
-    var con = mysql.createConnection({
-        host: "localhost",
-        user: "root",
-        password: "Cas2Boh2Mas"
-        //,database: "DevDB"
-    });
-        
+<script>
     function addEntry() { 
-
-        console.log("hello world!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 
         const entry_ID = document.getElementById("entry_ID").value;
         const entry_segment = document.getElementById("entry_segment").value;
@@ -29,12 +17,21 @@
         const entry_exposure = document.getElementById("entry_exposure").value;
 
         var sql = "INSERT INTO test_accounts ("+entry_ID+", "+entry_segment+", "+entry_region+", "+entry_industry+", "+entry_hazard+", "+entry_revenue+", "+entry_units+", "+entry_TIV+", "+entry_payroll+", "+entry_exposure+")";
-        console.log(sql);
-
-        con.query(sql, function (err, result) {
-            if (err) throw err;
-            console.log("1 record inserted");
-        }); 
+        
+        var searchParams = new URLSearchParams(window.location.search)
+        searchParams.set("entry_ID", entry_ID)
+        searchParams.set("entry_segment", entry_segment)
+        searchParams.set("entry_region", entry_region)
+        searchParams.set("entry_industry", entry_industry)
+        searchParams.set("entry_hazard", entry_hazard)
+        searchParams.set("entry_revenue", entry_revenue)
+        searchParams.set("entry_units", entry_units)
+        searchParams.set("entry_TIV", entry_TIV)
+        searchParams.set("entry_payroll", entry_payroll)
+        searchParams.set("entry_exposure", entry_exposure)
+        searchParams.set("submit", true)
+        
+        window.location.search = searchParams.toString()
     }
     
 </script>
