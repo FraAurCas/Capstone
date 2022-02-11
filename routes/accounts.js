@@ -39,7 +39,7 @@ con.connect(function (err) {
 //GET the detailed pages from the database
 router.get('/:account_id', function(req,res,next){
     let account_id =req.params.account_id;
-    var individualQueryString = "SELECT * FROM test_accounts LIMIT " + account_id +", 1";
+    var individualQueryString = "SELECT * FROM devData LIMIT " + account_id +", 1";
 //    var individualQueryString = "SELECT "+ account_id+" FROM test_accounts"; 
 //    var individualQueryString = "SELECT * WHERE id BETWEEN "+ account_id+" AND "+ 1 + " FROM test_accounts"; 
 //SELECT * WHERE id = account_id
@@ -47,9 +47,9 @@ router.get('/:account_id', function(req,res,next){
     con.query(individualQueryString, function (err, result, fields){
         if (err) throw err;
         let account = result;
-        // console.log("--------------");
-        // console.log(account);
-        // console.log("--------------");    
+        console.log("--------------");
+        console.log(account);
+        console.log("--------------");    
         // console.log(account[0].name);
         // var tabName = account[0].name;
         // console.log("--------------");

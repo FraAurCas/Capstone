@@ -1,7 +1,8 @@
+{{#with array}}
 <div class="container">
     <div class="card purple lighten-5">
         <span class="card-title">
-            <h1>{{array.0.name}}</h1>
+            <h1>{{0.ID}}</h1>
             
         </span>
     </div>
@@ -12,28 +13,32 @@
     <table class="highlight centered responsive-table">
         <thead>
             <tr>
-                <th>Office </th> 
-                <th>Broker </th>
-                <th>Client Advocate </th>
+                <th>Broking Segment </th> 
+                <th>Broking Region </th>
                 <th>Industry</th>
+                <th>Hazard Group</th>
                 <th>Revenue</th>
-                <th>Global Footprint</th>
-                <th>Limits</th>
-                <th>Losses</th>
-                <th>Retentions</th>
+                <th>Power Units</th>
+                <th>Insurable Value</th>
+                <th>Payroll</th>
+                <th>Catastrophe Exposure</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>{{array.0.office}}</td>
-                <td>{{array.0.broker}}</td>
-                <td>{{array.0.clientAdvocate}}</td>
-                <td>{{array.0.industry}}</td>
-                <td>{{array.0.revenue}}</td>
-                <td>{{array.0.footprint}}</td>
-                <td>{{array.0.limits}}</td>
-                <td>{{array.0.losses}}</td>
-                <td>{{array.0.retentions}}</td>
+                <td>{{0.segment}}</td>
+                <td>{{0.region}}</td>
+                <td>{{0.industry}}</td>
+                <td>{{0.hazardGroup}}</td>
+                <!--> <$500,000,000; $500,000,001 - $1,000,000,000; $1,000,000,001 - $10,000,000,000; $10,000,000,001 - $50,000,000,000; >$50,000,000,001 </-->
+                <td>{{0.revenue}}</td>
+                <!--><50; 51-100; 101-500; 501-2,000; >2,001</-->
+                <td>{{0.powerUnits}}</td>
+                <!--><$1,000,000,000; $1,000,000,001 - $10,000,000,000; $10,000,000,001 - $50,000,000,000; $50,000,000,001 - $100,000,000,000; >$100,000,000,001</-->
+                <td>{{0.insurableValue}}</td>
+                <!--><$10,000,000; $10,000,001 - $100,000,000; $100,000,001 - $500,000,000; $500,000,001 - $2,000,000,000; $2,000,000,001 - $10,000,000,000; >$10,000,000,001</-->
+                <td>{{0.payroll}}</td>
+                <td>{{0.catastrophe}}</td>
             </tr>
         </tbody>
     </table>
@@ -42,3 +47,4 @@
 <div class="container account-details">{{"Here we can have more text for a description"}}</div>
 </div>
 </div>
+{{/with}}
