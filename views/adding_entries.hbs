@@ -1,3 +1,44 @@
+<script>     
+
+    var mysql = require('mysql');
+
+    var con = mysql.createConnection({
+        host: "localhost",
+        user: "root",
+        password: "Cas2Boh2Mas"
+        //,database: "DevDB"
+    });
+        
+    function addEntry() { 
+
+        console.log("hello world!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
+        const entry_ID = document.getElementById("entry_ID").value;
+        const entry_segment = document.getElementById("entry_segment").value;
+        
+        const entry_region = document.getElementById("entry_region").value;
+        const entry_industry = document.getElementById("entry_industry").value;
+        
+        const entry_hazard = document.getElementById("entry_hazard").value;
+        const entry_revenue = document.getElementById("entry_revenue").value;
+        
+        const entry_units = document.getElementById("entry_units").value;
+        const entry_TIV = document.getElementById("entry_TIV").value;
+        
+        const entry_payroll = document.getElementById("entry_payroll").value;
+        const entry_exposure = document.getElementById("entry_exposure").value;
+
+        var sql = "INSERT INTO test_accounts ("+entry_ID+", "+entry_segment+", "+entry_region+", "+entry_industry+", "+entry_hazard+", "+entry_revenue+", "+entry_units+", "+entry_TIV+", "+entry_payroll+", "+entry_exposure+")";
+        console.log(sql);
+
+        con.query(sql, function (err, result) {
+            if (err) throw err;
+            console.log("1 record inserted");
+        }); 
+    }
+    
+</script>
+
 <div class="container">
     <div class="card purple lighten-5">
         <div class="card-content">
@@ -9,11 +50,11 @@
         <div class="row">
             <div class="input-field col s6">
                 <input type="text" id="entry_ID" name="entry_ID" class="validate" data-length="32" required>
-                <label for="login_id">Client ID</label>
+                <label for="entry_ID">Client ID</label>
             </div>
             <div class="input-field col s6">
                 <input type="text" id="entry_segment" name="entry_segment" class="validate" data-length="32" required>
-                <label for="login_id">Broking Segment</label>
+                <label for="entry_segment">Broking Segment</label>
             </div>
         </div>
 
@@ -66,41 +107,5 @@
                 Submit
                 </button>
         </div>
-
-        
-
     </div>
 </div>
-
-<script>     
-    function addEntry() { 
-
-        console.log("hello world!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-
-        const entry_ID = document.getElementById("entry_ID");
-        const entry_segment = document.getElementById("entry_segment");
-        
-        const entry_region = document.getElementById("entry_region");
-        const entry_industry = document.getElementById("entry_industry");
-        
-        const entry_hazard = document.getElementById("entry_hazard");
-        const entry_revenue = document.getElementById("entry_revenue");
-        
-        const entry_units = document.getElementById("entry_units");
-        const entry_TIV = document.getElementById("entry_TIV");
-        
-        const entry_payroll = document.getElementById("entry_payroll");
-        const entry_office = document.getElementById("entry_office");
-        
-        const entry_payroll = document.getElementById("entry_payroll");
-        const entry_exposure = document.getElementById("entry_exposure");
-
-        var sql = "INSERT INTO test_accounts ("+entry_ID+", "+entry_segment+", "+entry_region+", "+entry_industry+", "+entry_hazard+", "+entry_revenue+", "+entry_units+", "+entry_TIV+", "+entry_payroll+", "+entry_payroll+", "+entry_exposure+"")";
-        console.log(sql);
-        con.query(sql, function (err, result) {
-            if (err) throw err;
-            console.log("1 record inserted");
-        });
-    }
-    
-</script>
