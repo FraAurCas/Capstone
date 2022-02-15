@@ -60,9 +60,9 @@
         <tbody>
             <tr>
                 {{#each array}}
-                <tr>
+                <tr onclick="location.href='/accounts/{{this.ID}}'">
                     {{#each this}}
-                    <td onclick="location.href='/account/{{this.id}}'">{{this}}</td>
+                    <td>{{this}}</td>
                     {{/each}}
                 </tr>
                 {{/each}}
