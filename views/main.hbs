@@ -19,12 +19,11 @@
 
     <!-- https://materializecss.com/table.html -->
 
-    <div>
-        <!-- Searchbar -->
+    {{!-- <div>
         <input type="text" placeholder="Search.." id="searchbox">
         <a class="waves-effect waves-light btn-small navbar"
             onclick="addUrlParameter('search', document.getElementById('searchbox').value)">Search</a>
-    </div>
+    </div> --}}
 
     <table class="highlight centered responsive-table">
         <thead>
@@ -60,9 +59,9 @@
         <tbody>
             <tr>
                 {{#each array}}
-                <tr>
+                <tr onclick="location.href='/accounts/{{this.ID}}'">
                     {{#each this}}
-                    <td onclick="location.href='/account/{{this.id}}'">{{this}}</td>
+                    <td>{{this}}</td>
                     {{/each}}
                 </tr>
                 {{/each}}
@@ -75,65 +74,179 @@
 
     <p></p>
     {{#if include_segment}}
-        <a onclick="addUrlParameter('include_segment', 'false')">Including Segment</a>
+        <div class="switch">
+            <label onclick="addUrlParameter('include_segment', 'false')">
+                Segment
+                <input type="checkbox" checked="checked">
+                <span class="lever"></span>
+            </label>
+        </div>
     {{else}}
-        <a onclick="addUrlParameter('include_segment', 'true')">Excluding Segment</a>
+        <div class="switch">
+            <label onclick="addUrlParameter('include_segment', 'true')">
+                Segment
+                <input type="checkbox">
+                <span class="lever"></span>
+            </label>
+        </div>
     {{/if}}
 
     <p></p>
     {{#if include_region}}
-        <a onclick="addUrlParameter('include_region', 'false')">Including Region</a>
+        <div class="switch">
+            <label onclick="addUrlParameter('include_region', 'false')">
+                Region
+                <input type="checkbox" checked="checked">
+                <span class="lever"></span>
+            </label>
+        </div>
     {{else}}
-        <a onclick="addUrlParameter('include_region', 'true')">Excluding Region</a>
+        <div class="switch">
+            <label onclick="addUrlParameter('include_region', 'true')">
+                Region
+                <input type="checkbox">
+                <span class="lever"></span>
+            </label>
+        </div>
     {{/if}}
 
     <p></p>
     {{#if include_industry}}
-        <a onclick="addUrlParameter('include_industry', 'false')">Including Industry</a>
+        <div class="switch">
+            <label onclick="addUrlParameter('include_industry', 'false')">
+                Industry
+                <input type="checkbox" checked="checked">
+                <span class="lever"></span>
+            </label>
+        </div>
     {{else}}
-        <a onclick="addUrlParameter('include_industry', 'true')">Excluding Industry</a>
+        <div class="switch">
+            <label onclick="addUrlParameter('include_industry', 'true')">
+                Industry
+                <input type="checkbox">
+                <span class="lever"></span>
+            </label>
+        </div>
     {{/if}}
 
     <p></p>
     {{#if include_hazardGroup}}
-        <a onclick="addUrlParameter('include_hazardGroup', 'false')">Including Hazard Group</a>
+        <div class="switch">
+            <label onclick="addUrlParameter('include_hazardGroup', 'false')">
+                Hazard Group
+                <input type="checkbox" checked="checked">
+                <span class="lever"></span>
+            </label>
+        </div>
     {{else}}
-        <a onclick="addUrlParameter('include_hazardGroup', 'true')">Excluding Hazard Group</a>
+        <div class="switch">
+            <label onclick="addUrlParameter('include_hazardGroup', 'true')">
+                Hazard Group
+                <input type="checkbox">
+                <span class="lever"></span>
+            </label>
+        </div>
     {{/if}}
+
 
     <p></p>
     {{#if include_revenue}}
-    <a onclick="addUrlParameter('include_revenue', 'false')">Including Revenue</a>
+        <div class="switch">
+            <label onclick="addUrlParameter('include_revenue', 'false')">
+                Revenue
+                <input type="checkbox" checked="checked">
+                <span class="lever"></span>
+            </label>
+        </div>
     {{else}}
-    <a onclick="addUrlParameter('include_revenue', 'true')">Excluding Revenue</a>
+        <div class="switch">
+            <label onclick="addUrlParameter('include_revenue', 'true')">
+                Revenue
+                <input type="checkbox">
+                <span class="lever"></span>
+            </label>
+        </div>
     {{/if}}
 
     <p></p>
     {{#if include_powerUnits}}
-        <a onclick="addUrlParameter('include_powerUnits', 'false')">Including Power Units</a>
+        <div class="switch">
+            <label onclick="addUrlParameter('include_powerUnits', 'false')">
+                Power Units
+                <input type="checkbox" checked="checked">
+                <span class="lever"></span>
+            </label>
+    </div>
     {{else}}
-        <a onclick="addUrlParameter('include_powerUnits', 'true')">Excluding Power Units</a>
+        <div class="switch">
+            <label onclick="addUrlParameter('include_powerUnits', 'true')">
+                Power Units
+                <input type="checkbox">
+                <span class="lever"></span>
+            </label>
+        </div>
     {{/if}}
 
     <p></p>
     {{#if include_insurableVaue}}
-        <a onclick="addUrlParameter('include_insurableVaue', 'false')">Including Insurable Value</a>
+        <div class="switch">
+            <label onclick="addUrlParameter('include_insurableVaue', 'false')">
+                Insurable Value
+                <input type="checkbox" checked="checked">
+                <span class="lever"></span>
+            </label>
+        </div>
     {{else}}
-        <a onclick="addUrlParameter('include_insurableVaue', 'true')">Excluding Insurable Value</a>
+        <div class="switch">
+            <label onclick="addUrlParameter('include_insurableVaue', 'true')">
+                Insurable Value
+                <input type="checkbox">
+                <span class="lever"></span>
+            </label>
+        </div>
     {{/if}}
 
     <p></p>
     {{#if include_payroll}}
-        <a onclick="addUrlParameter('include_payroll', 'false')">Including Payroll</a>
+        <div class="switch">
+            <label onclick="addUrlParameter('include_payroll', 'false')">
+                Payroll
+                <input type="checkbox" checked="checked">
+                <span class="lever"></span>
+            </label>
+        </div>
     {{else}}
-        <a onclick="addUrlParameter('include_payroll', 'true')">Excluding Payroll</a>
+        <div class="switch">
+            <label onclick="addUrlParameter('include_payroll', 'true')">
+                Payroll
+                <input type="checkbox">
+                <span class="lever"></span>
+            </label>
+        </div>
     {{/if}}
 
     <p></p>
     {{#if include_catastrophe}}
-        <a onclick="addUrlParameter('include_retentions', 'false')">Including Catastrophe</a>
+        <div class="switch">
+            <label onclick="addUrlParameter('include_catastrophe', 'false')">
+                Catastrophe Ex.
+                <input type="checkbox" checked="checked">
+                <span class="lever"></span>
+            </label>
+        </div>
     {{else}}
-        <a onclick="addUrlParameter('include_retentions', 'true')">Excluding Catastrophe</a>
+        <div class="switch">
+            <label onclick="addUrlParameter('include_catastrophe', 'true')">
+                Catastrophe Ex.
+                <input type="checkbox">
+                <span class="lever"></span>
+            </label>
+        </div>
     {{/if}}
-
+    
+    <div class="row">
+        <div class="button_wrapper col s2">
+            <a class="submit waves-effect waves-light btn btn-large" type="submit" href="/adding_entries">Add Entries</a>
+        </div>
+    </div>
 </div>

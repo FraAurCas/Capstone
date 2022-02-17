@@ -28,6 +28,17 @@ router.get('/', function (req, res, next) {
     var include_payroll = (req.query.include_payroll || 'true') === 'true';
     var include_catastrophe = (req.query.include_catastrophe || 'true') === 'true';
 
+    var search_params = ["", "", "", "", "", "", "", "", ""];
+    search_params[0] = "%" + (req.query.segment_constraint || '') + "%";
+    search_params[1] = "%" + (req.query.region_constraint || '') + "%";
+    search_params[2] = "%" + (req.query.industry_constraint || '') + "%";
+    search_params[3] = "%" + (req.query.hazardGroup_constraint || '') + "%";
+    search_params[4] = "%" + (req.query.revenue_constraint || '') + "%";
+    search_params[5] = "%" + (req.query.powerUnits_constraint || '') + "%";
+    search_params[6] = "%" + (req.query.insurableValue_constraint || '' + "%");
+    search_params[7] = "%" + (req.query.payroll_constraint || '') + "%";
+    search_params[8] = "%" + (req.query.catastrophe_constraint || '' + "%");
+
     var query_string = "SELECT ID, ";
     if (include_segment) {
         query_string += "segment, ";
@@ -60,17 +71,22 @@ router.get('/', function (req, res, next) {
 
     query_string += " FROM devData";
 
-    if (req.query.search || '' !== '') {
+    query_string += " WHERE segment LIKE ? AND region LIKE ? AND industry LIKE ? AND hazardGroup LIKE ? AND revenue LIKE ? AND powerUnits LIKE ? AND insurableValue LIKE ? AND catastrophe LIKE ?"
+
+    /*
+    if (segment_constraint !== '') {
         var escaped_search = con.escape(req.query.search); //TODO: This may not work
         query_string += " WHERE industry LIKE '%" + escaped_search.substring(1, escaped_search.length -1) + "%'";
     }
+    */
 
     query_string += ";";
 
-    console.log(query_string);
-
-    con.query(query_string, [],function (err, result, fields) { 
-        if (err) throw err; 
+    con.query(query_string,
+        search_params,
+        function (err, result, fields) {
+        if (err) throw err;
+            console.log(result);
         res.render('main', { title: 'Policies', array: result, include_segment: include_segment, include_region: include_region, include_industry: include_industry, include_hazardGroup: include_hazardGroup, include_revenue: include_revenue, include_powerUnits: include_powerUnits, include_insurableVaue: include_insurableVaue, include_payroll: include_payroll, include_catastrophe: include_catastrophe});
     });
 });
