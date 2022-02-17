@@ -15,12 +15,24 @@ var accountsRouter = require('./routes/accounts');
 
 var app = express();
 
+// var exphbs = require('express-handlebars');
+//var hbs = require('./helpers/handlebars.js')(exphbs);
+
+var exphbs = require('express-handlebars');
+var hbsHelpers = exphbs.create({
+    helpers: require("./helpers/handlebars.js").helpers,
+    defaultLayout: 'layout',
+    extname: '.hbs'
+});
+
 app.use(express.static(path.join(__dirname, '/public'))); 
 app.use(express.static(path.join(__dirname, 'node_modules/materialize-css/dist')));  
 
 // view engine setup
+app.engine('hbs', hbsHelpers.engine); 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -50,5 +62,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
 
 module.exports = app;

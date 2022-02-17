@@ -1,6 +1,17 @@
 var express = require('express');
+var expressHbs = require('express-handlebars');
+
 var router = express.Router();
 
+ var hbs = expressHbs.create({
+//     helpers: require('./accounts'),
+//     defaultLayout: 'main',
+//       extname: '.hbs'
+ });
+
+ hbs.handlebars.registerHelper('compareNum', function(inputNumber, checkAgainst){
+     return inputNumber == checkAgainst;
+ });
 var mysql = require('mysql');
 
 var con = mysql.createConnection({
@@ -13,6 +24,7 @@ var con = mysql.createConnection({
 con.connect(function (err) {
     if (err) throw err;
 });
+
 
 //var accounts_data = require('../data/dummy_accounts');
 
