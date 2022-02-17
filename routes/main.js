@@ -37,7 +37,7 @@ router.get('/', function (req, res, next) {
     search_params[5] = "%" + (req.query.powerUnits_constraint || '') + "%";
     search_params[6] = "%" + (req.query.insurableValue_constraint || '' + "%");
     search_params[7] = "%" + (req.query.payroll_constraint || '') + "%";
-    search_params[8] = "%" + (req.query.catastrophe_constraint || '' + "%"); 
+    search_params[8] = "%" + (req.query.catastrophe_constraint || '' + "%");
 
     var query_string = "SELECT ID, ";
     if (include_segment) {
@@ -82,9 +82,9 @@ router.get('/', function (req, res, next) {
 
     query_string += ";";
 
-    con.query(query_string, 
+    con.query(query_string,
         search_params,
-        function (err, result, fields) { 
+        function (err, result, fields) {
         if (err) throw err;
             console.log(result);
         res.render('main', { title: 'Policies', array: result, include_segment: include_segment, include_region: include_region, include_industry: include_industry, include_hazardGroup: include_hazardGroup, include_revenue: include_revenue, include_powerUnits: include_powerUnits, include_insurableVaue: include_insurableVaue, include_payroll: include_payroll, include_catastrophe: include_catastrophe});
