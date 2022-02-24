@@ -35,9 +35,11 @@ router.get('/', function (req, res, next) {
     search_params[3] = "%" + (req.query.hazardGroup_constraint || '') + "%";
     search_params[4] = "%" + (req.query.revenue_constraint || '') + "%";
     search_params[5] = "%" + (req.query.powerUnits_constraint || '') + "%";
-    search_params[6] = "%" + (req.query.insurableValue_constraint || '' + "%");
-    search_params[7] = "%" + (req.query.payroll_constraint || '') + "%";
-    search_params[8] = "%" + (req.query.catastrophe_constraint || '' + "%");
+    search_params[6] = "%" + (req.query.insurableValue_constraint || '') + "%";
+    search_params[7] = "%" + (req.query.payroll_constraint || '') + "%"; //Need to actually search this
+    search_params[8] = "%" + (req.query.catastrophe_constraint || '') + "%";
+
+    console.log(search_params[8]);
 
     var query_string = "SELECT ID, ";
     if (include_segment) {
@@ -71,7 +73,7 @@ router.get('/', function (req, res, next) {
 
     query_string += " FROM devData";
 
-    query_string += " WHERE segment LIKE ? AND region LIKE ? AND industry LIKE ? AND hazardGroup LIKE ? AND revenue LIKE ? AND powerUnits LIKE ? AND insurableValue LIKE ? AND catastrophe LIKE ?"
+    query_string += " WHERE segment LIKE ? AND region LIKE ? AND industry LIKE ? AND hazardGroup LIKE ? AND revenue LIKE ? AND powerUnits LIKE ? AND insurableValue LIKE ? AND payroll LIKE ? AND catastrophe LIKE ?"
 
     /*
     if (segment_constraint !== '') {
