@@ -1,19 +1,20 @@
 var express = require('express');
 var expressHbs = require('express-handlebars');
+const { handlebars } = require('hbs');
 
 var router = express.Router();
 
  var hbs = expressHbs.create({
-//     helpers: require('./accounts'),
-//     defaultLayout: 'main',
-//       extname: '.hbs'
+    helpers: require('../helpers/handlebars').helpers,
+    defaultLayout: 'layout',
+      extname: '.hbs'
  });
 
- hbs.handlebars.registerHelper('compareNum', function(inputNumber, checkAgainst){
-     return inputNumber == checkAgainst;
- });
 var mysql = require('mysql');
+// const hbsHelpers = require('../helpers/handlebars');
 
+console.log('===============')
+console.log(hbs.handlebars.helpers);
 var con = mysql.createConnection({
     host: "devdb.c9lxwufrjy46.us-east-1.rds.amazonaws.com",
     user: "root",
