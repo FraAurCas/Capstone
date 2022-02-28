@@ -36,7 +36,7 @@ router.get('/', function (req, res, next) {
     search_params[4] = "%" + (req.query.revenue_constraint || '') + "%";
     search_params[5] = "%" + (req.query.powerUnits_constraint || '') + "%";
     search_params[6] = "%" + (req.query.insurableValue_constraint || '') + "%";
-    search_params[7] = "%" + (req.query.payroll_constraint || '') + "%"; //Need to actually search this
+    search_params[7] = "%" + (req.query.payroll_constraint || '') + "%";
     search_params[8] = "%" + (req.query.catastrophe_constraint || '') + "%";
 
     console.log(search_params[8]);
