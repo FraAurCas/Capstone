@@ -1,3 +1,4 @@
+const e = require('express');
 var express = require('express');
 var router = express.Router();
 
@@ -11,6 +12,69 @@ var con = mysql.createConnection({
     password: "Cas2Boh2Mas",
     database: "DevDB"
 });
+
+to_ranges = function (result) { //Function which turns numerical values to ranges
+    for (account of result) {
+        if (account.revenue) {
+            if (account.revenue <= 500000000) {
+                account.revenue = "<$500,000,000"
+            } else if (account.revenue <= 1000000000) {
+                account.revenue = "$500,000,001 - $1,000,000,000"
+            } else if (account.revenue <= 10000000000) {
+                account.revenue = "$1,000,000,001 - $10,000,000,000"
+            } else if (account.revenue <= 50000000000) {
+                account.revenue = "$10,000,000,001 - $50,000,000,000"
+            } else {
+                account.revenue = ">$50,000,000,001"
+            }
+        }
+
+        if (account.powerUnits) {
+            if (account.powerUnits <= 50) {
+                account.powerUnits = "<50";
+            } else if (account.powerUnits <= 100) {
+                account.powerUnits = "51-100"
+            } else if (account.powerUnits <= 500) {
+                account.powerUnits = "101-500"
+            } else if (account.powerUnits <= 2000) {
+                account.powerUnits = "501-2000"
+            } else {
+                account.powerUnits = ">2001"
+            }
+        }
+
+        if (account.insurableValue) {
+            if (account.insurableValue <= 1000000000) {
+                account.insurableValue = "<$1,000,000,000"
+            } else if (account.insurableValue <= 10000000000) {
+                account.insurableValue = "$1,000,000,001 - $10,000,000,000"
+            } else if (account.insurableValue <= 50000000000) {
+                account.insurableValue = "$10,000,000,001 - $50,000,000,000"
+            } else if (account.insurableValue <= 100000000000) {
+                account.insurableValue = "$50,000,000,001 - $100,000,000,000"
+            } else {
+                account.insurableValue = ">$100,000,000,001";
+            }
+        }
+
+        if (account.payroll) {
+            if (account.payroll <= 10000000) {
+                account.payroll = "<$10,000,000"
+            } else if (account.payroll <= 100000000) {
+                account.payroll = "$10,000,001 - $100,000,000"
+            } else if (account.payroll <= 500000000) {
+                account.payroll = "$100,000,001 - $500,000,000"
+            } else if (account.payroll <= 2000000000) {
+                account.payroll = "$500,000,001 - $2,000,000,000"
+            } else if (account.payroll <= 10000000000) {
+                account.payroll = "$2,000,000,001 - $10,000,000,000"
+            } else {
+                account.payroll = ">$10,000,000,001"
+            }
+        }
+    }
+    return result;
+} 
 
 con.connect(function (err) {
     if (err) throw err;
@@ -87,9 +151,12 @@ router.get('/', function (req, res, next) {
     con.query(query_string,
         search_params,
         function (err, result, fields) {
-        if (err) throw err;
-            console.log(result);
-        res.render('main', { title: 'Policies', array: result, include_segment: include_segment, include_region: include_region, include_industry: include_industry, include_hazardGroup: include_hazardGroup, include_revenue: include_revenue, include_powerUnits: include_powerUnits, include_insurableVaue: include_insurableVaue, include_payroll: include_payroll, include_catastrophe: include_catastrophe});
+            if (err) throw err;
+
+            //Make numerical values into ranges used by company
+            to_ranges(result)
+
+            res.render('main', { title: 'Policies', array: result, include_segment: include_segment, include_region: include_region, include_industry: include_industry, include_hazardGroup: include_hazardGroup, include_revenue: include_revenue, include_powerUnits: include_powerUnits, include_insurableVaue: include_insurableVaue, include_payroll: include_payroll, include_catastrophe: include_catastrophe});
     });
 });
 
