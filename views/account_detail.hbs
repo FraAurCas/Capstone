@@ -1,0 +1,92 @@
+{{#with array}}
+<div class="container">
+    <div class="card purple lighten-5">
+        <span class="card-title">
+            <h1>{{0.ID}}</h1>
+            
+        </span>
+    </div>
+</div>
+<!--<div class="card-content">-->
+<div class="container">
+<div class="card">
+    <table class="highlight centered responsive-table">
+        <thead>
+            <tr>
+                <th>Broking Segment </th> 
+                <th>Broking Region </th>
+                <th>Industry</th>
+                <th>Hazard Group</th>
+                <th>Revenue</th>
+                <th>Power Units</th>
+                <th>Insurable Value</th>
+                <th>Payroll</th>
+                <th>Catastrophe Exposure</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{0.segment}}</td>
+                <td>{{0.region}}</td>
+                <td>{{0.industry}}</td>
+                <td>{{0.hazardGroup}}</td>
+                {{!-- <!--> <$500,000,000; $500,000,001 - $1,000,000,000; $1,000,000,001 - $10,000,000,000; $10,000,000,001 - $50,000,000,000; >$50,000,000,001 </--> --}}
+                {{#if (compareNum 0.revenue 500000000)}}
+                    <td>&60;&#36;500&#44;000&#44;000</td>
+                {{else if (compareNum 0.revenue 500000001)}}
+                    <td>&#36;500&#44;000&#44;001 &#45; &#36;1&#44;000&#44;000&#44;000</td>
+                {{else if (compareNum 0.revenue 1000000001)}}
+                    <td>&#36;1&#44;000&#44;000&#44;001 &#45; &#36;10&#44;000&#44;000&#44;000</td>
+                {{else if (compareNum 0.revenue 10000000001)}}
+                    <td>&#36;10&#44;000&#44;000&#44;001 &#45; &#36;50&#44;000&#44;000&#44;000</td>
+                {{else if (compareNum 0.revenue 50000000001)}}
+                    <td>&#62;&#36;50&#44;000&#44;000&#44;001</td>
+                {{/if}}
+                {{!-- <!--><50; 51-100; 101-500; 501-2,000; >2,001</--> --}}
+                {{#if (compareNum 0.powerUnits 50)}}
+                    <td>&#60;50</td>
+                {{else if (compareNum 0.powerUnits 51)}}
+                    <td>&#36;51 &#45; 100</td>
+                {{else if (compareNum 0.powerUnits 101)}}
+                    <td>&#36;101 &#45; 500</td>
+                {{else if (compareNum 0.powerUnits 501)}}
+                    <td>&#36;501 &#45; 2&#44;000</td>
+                {{else if (2001)}}
+                    <td>&#62;2&#44;001</td>
+                {{/if}}
+                {{!-- <!--><$1,000,000,000; $1,000,000,001 - $10,000,000,000; $10,000,000,001 - $50,000,000,000; $50,000,000,001 - $100,000,000,000; >$100,000,000,001</--> --}}
+                {{#if (compareNum 0.insurableValue 1000000000)}}
+                    <td>&#60;&#36;1&#44;000&#44;000&#44;000</td>
+                {{else if (compareNum 0.insurableValue 1000000001)}}
+                    <td>&#36;1&#44;000&#44;000&#44;001 &#45; &#36;10&#44;000&#44;000&#44;000</td>
+                {{else if (compareNum 0.insurableValue 10000000001)}}
+                    <td>&#36;10&#44;000&#44;000&#44;001 &#45; &#36;50&#44;000&#44;000&#44;000</td>
+                {{else if (compareNum 0.insurableValue 50000000001)}}
+                    <td>&#36;50&#44;000&#44;000&#44;001 &#45; &#36;100&#44;000&#44;000&#44;000</td>
+                {{else if (compareNum 0.insurableValue 100000000001)}}
+                    <td>&#62;&#36;100&#44;000&#44;000&#44;001</td>
+                {{/if}}
+                {{!-- <!--><$10,000,000; $10,000,001 - $100,000,000; $100,000,001 - $500,000,000; $500,000,001 - $2,000,000,000; $2,000,000,001 - $10,000,000,000; >$10,000,000,001</--> --}}
+                {{#if (compareNum 0.payroll 10000000)}}
+                    <td>&#60;&#36;1&#44;000&#44;000</td>
+                {{else if (compareNum 0.payroll 10000001)}}
+                    <td>&#36;10&#44;000&#44;001 &#45; &#36;100&#44;000&#44;000</td>
+                {{else if (compareNum 0.payroll 100000001)}}
+                    <td>&#36;100&#44;000&#44;001 &#45; &#36;500&#44;000&#44;000</td>
+                {{else if (compareNum 0.payroll 500000001)}}
+                    <td>&#36;&#44;500&#44;000&#44;001 &#45; &#36;2&#44;000&#44;000&#44;000</td>
+                {{else if (compareNum 0.payroll 2000000001)}}
+                    <td>&#36;2&#44;000&#44;000&#44;001 &#45; &#36;10&#44;000&#44;000&#44;000</td>
+                {{else if (compareNum 0.payroll 10000000001)}}
+                    <td>&#62;&#36;10&#44;000&#44;000&#44;001</td>
+                {{/if}}
+                <td>{{0.catastrophe}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+<div class="container account-details">{{"Here we can have more text for a description"}}</div>
+</div>
+</div>
+{{/with}}

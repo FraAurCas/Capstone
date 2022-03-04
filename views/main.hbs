@@ -1,0 +1,252 @@
+<div class="container">
+
+    <!--
+    <blockquote>
+    Click on the event name for more details!
+    Click on <i class="material-icons tiny">sort</i> to sort by that column, or items in <i
+        class="material-icons tiny">filter_list</i> columns to filter by that item.
+    </blockquote>
+    <div class="row">
+    <div class="col l3 s12 "> <i class="left material-icons">sort</i>Sorted by: Yes!</div>
+    <div class="col l3 offset-l6 ">
+        Position diffeently (left) for mobile
+        <div class="right hide-on-small-only"><i class="left material-icons">filter_list</i>Filter: None</div>
+        <div class="left hide-on-med-and-up"><i class="left material-icons">filter_list</i>Filter: None</div>
+    </div>
+
+    </div>
+    -->
+
+    <!-- https://materializecss.com/table.html -->
+
+    {{!-- <div>
+        <input type="text" placeholder="Search.." id="searchbox">
+        <a class="waves-effect waves-light btn-small navbar"
+            onclick="addUrlParameter('search', document.getElementById('searchbox').value)">Search</a>
+    </div> --}}
+
+    <table class="highlight centered responsive-table">
+        <thead>
+            <th>ID</th>
+            {{#if include_segment}}
+                <th>Broking Segment</th>
+            {{/if}}
+            {{#if include_region}}
+                <th>Broking Region</th>
+            {{/if}}
+            {{#if include_industry}}
+                <th>Industry</th>
+            {{/if}}
+            {{#if include_hazardGroup}}
+                <th>Hazard Group</th>
+            {{/if}}
+            {{#if include_revenue}}
+                <th>Global Revenue</th>
+            {{/if}}
+            {{#if include_powerUnits}}
+                <th>Power Units</th>
+            {{/if}}
+            {{#if include_insurableVaue}}
+                <th>Total Insurable Value</th>
+            {{/if}}
+            {{#if include_payroll}}
+                <th>Payroll</th>
+            {{/if}}
+            {{#if include_catastrophe}}
+                <th>Catastrophe Exposure</th>
+            {{/if}}
+        </thead>
+        <tbody>
+            <tr>
+                {{#each array}}
+                <tr onclick="location.href='/accounts/{{this.ID}}'">
+                    {{#each this}}
+                    <td>{{this}}</td>
+                    {{/each}}
+                </tr>
+                {{/each}}
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="sidebar">
+
+    <p></p>
+    {{#if include_segment}}
+        <div class="switch">
+            <label onclick="addUrlParameter('include_segment', 'false')">
+                Segment
+                <input type="checkbox" checked="checked">
+                <span class="lever"></span>
+            </label>
+        </div>
+    {{else}}
+        <div class="switch">
+            <label onclick="addUrlParameter('include_segment', 'true')">
+                Segment
+                <input type="checkbox">
+                <span class="lever"></span>
+            </label>
+        </div>
+    {{/if}}
+
+    <p></p>
+    {{#if include_region}}
+        <div class="switch">
+            <label onclick="addUrlParameter('include_region', 'false')">
+                Region
+                <input type="checkbox" checked="checked">
+                <span class="lever"></span>
+            </label>
+        </div>
+    {{else}}
+        <div class="switch">
+            <label onclick="addUrlParameter('include_region', 'true')">
+                Region
+                <input type="checkbox">
+                <span class="lever"></span>
+            </label>
+        </div>
+    {{/if}}
+
+    <p></p>
+    {{#if include_industry}}
+        <div class="switch">
+            <label onclick="addUrlParameter('include_industry', 'false')">
+                Industry
+                <input type="checkbox" checked="checked">
+                <span class="lever"></span>
+            </label>
+        </div>
+    {{else}}
+        <div class="switch">
+            <label onclick="addUrlParameter('include_industry', 'true')">
+                Industry
+                <input type="checkbox">
+                <span class="lever"></span>
+            </label>
+        </div>
+    {{/if}}
+
+    <p></p>
+    {{#if include_hazardGroup}}
+        <div class="switch">
+            <label onclick="addUrlParameter('include_hazardGroup', 'false')">
+                Hazard Group
+                <input type="checkbox" checked="checked">
+                <span class="lever"></span>
+            </label>
+        </div>
+    {{else}}
+        <div class="switch">
+            <label onclick="addUrlParameter('include_hazardGroup', 'true')">
+                Hazard Group
+                <input type="checkbox">
+                <span class="lever"></span>
+            </label>
+        </div>
+    {{/if}}
+
+
+    <p></p>
+    {{#if include_revenue}}
+        <div class="switch">
+            <label onclick="addUrlParameter('include_revenue', 'false')">
+                Revenue
+                <input type="checkbox" checked="checked">
+                <span class="lever"></span>
+            </label>
+        </div>
+    {{else}}
+        <div class="switch">
+            <label onclick="addUrlParameter('include_revenue', 'true')">
+                Revenue
+                <input type="checkbox">
+                <span class="lever"></span>
+            </label>
+        </div>
+    {{/if}}
+
+    <p></p>
+    {{#if include_powerUnits}}
+        <div class="switch">
+            <label onclick="addUrlParameter('include_powerUnits', 'false')">
+                Power Units
+                <input type="checkbox" checked="checked">
+                <span class="lever"></span>
+            </label>
+    </div>
+    {{else}}
+        <div class="switch">
+            <label onclick="addUrlParameter('include_powerUnits', 'true')">
+                Power Units
+                <input type="checkbox">
+                <span class="lever"></span>
+            </label>
+        </div>
+    {{/if}}
+
+    <p></p>
+    {{#if include_insurableVaue}}
+        <div class="switch">
+            <label onclick="addUrlParameter('include_insurableVaue', 'false')">
+                Insurable Value
+                <input type="checkbox" checked="checked">
+                <span class="lever"></span>
+            </label>
+        </div>
+    {{else}}
+        <div class="switch">
+            <label onclick="addUrlParameter('include_insurableVaue', 'true')">
+                Insurable Value
+                <input type="checkbox">
+                <span class="lever"></span>
+            </label>
+        </div>
+    {{/if}}
+
+    <p></p>
+    {{#if include_payroll}}
+        <div class="switch">
+            <label onclick="addUrlParameter('include_payroll', 'false')">
+                Payroll
+                <input type="checkbox" checked="checked">
+                <span class="lever"></span>
+            </label>
+        </div>
+    {{else}}
+        <div class="switch">
+            <label onclick="addUrlParameter('include_payroll', 'true')">
+                Payroll
+                <input type="checkbox">
+                <span class="lever"></span>
+            </label>
+        </div>
+    {{/if}}
+
+    <p></p>
+    {{#if include_catastrophe}}
+        <div class="switch">
+            <label onclick="addUrlParameter('include_catastrophe', 'false')">
+                Catastrophe Ex.
+                <input type="checkbox" checked="checked">
+                <span class="lever"></span>
+            </label>
+        </div>
+    {{else}}
+        <div class="switch">
+            <label onclick="addUrlParameter('include_catastrophe', 'true')">
+                Catastrophe Ex.
+                <input type="checkbox">
+                <span class="lever"></span>
+            </label>
+        </div>
+    {{/if}}
+    
+    <div class="row">
+        <div class="button_wrapper col s2">
+            <a class="submit waves-effect waves-light btn btn-large" type="submit" href="/adding_entries">Add Entries</a>
+        </div>
+    </div>
+</div>
