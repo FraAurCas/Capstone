@@ -14,10 +14,8 @@ var adding_entriesRouter = require('./routes/adding_entries');
 var accountsRouter = require('./routes/accounts');
 
 var app = express();
-console.log('1');
 // var exphbs = require('express-handlebars');
 
-console.log('2');
 var exphbs = require('express-handlebars');
 var hbs = require('./helpers/handlebars.js')(exphbs);
 var hbsHelpers = exphbs.create({
@@ -25,10 +23,10 @@ var hbsHelpers = exphbs.create({
     defaultLayout: 'layout',
     extname: '.hbs'
 });
-console.log('3');
+
 hbsHelpers.handlebars.registerHelper(hbs.helpers);
-console.log("----------------------");
-console.log(hbs.helpers);//------------- herehereherehere
+// console.log("----------------------");
+// console.log(hbs.helpers);//------------- herehereherehere
 app.use(express.static(path.join(__dirname, '/public'))); 
 app.use(express.static(path.join(__dirname, 'node_modules/materialize-css/dist')));  
 
