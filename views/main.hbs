@@ -70,7 +70,7 @@
     </table>
 </div>
 
-<div class="sidebar">
+<div class="sidebar z-depth-2 card">
 
     <p></p>
     {{#if include_segment}}
@@ -78,7 +78,7 @@
             <label onclick="addUrlParameter('include_segment', 'false')">
                 Segment
                 <input type="checkbox" checked="checked">
-                <span class="lever"></span>
+                <span class="lever secondary_color"></span>
             </label>
         </div>
     {{else}}
@@ -97,7 +97,7 @@
             <label onclick="addUrlParameter('include_region', 'false')">
                 Region
                 <input type="checkbox" checked="checked">
-                <span class="lever"></span>
+                <span class="lever secondary_color"></span>
             </label>
         </div>
     {{else}}
@@ -116,7 +116,7 @@
             <label onclick="addUrlParameter('include_industry', 'false')">
                 Industry
                 <input type="checkbox" checked="checked">
-                <span class="lever"></span>
+                <span class="lever secondary_color"></span>
             </label>
         </div>
     {{else}}
@@ -135,7 +135,7 @@
             <label onclick="addUrlParameter('include_hazardGroup', 'false')">
                 Hazard Group
                 <input type="checkbox" checked="checked">
-                <span class="lever"></span>
+                <span class="lever secondary_color"></span>
             </label>
         </div>
     {{else}}
@@ -155,7 +155,7 @@
             <label onclick="addUrlParameter('include_revenue', 'false')">
                 Revenue
                 <input type="checkbox" checked="checked">
-                <span class="lever"></span>
+                <span class="lever secondary_color"></span>
             </label>
         </div>
     {{else}}
@@ -174,7 +174,7 @@
             <label onclick="addUrlParameter('include_powerUnits', 'false')">
                 Power Units
                 <input type="checkbox" checked="checked">
-                <span class="lever"></span>
+                <span class="lever secondary_color"></span>
             </label>
     </div>
     {{else}}
@@ -193,7 +193,7 @@
             <label onclick="addUrlParameter('include_insurableVaue', 'false')">
                 Insurable Value
                 <input type="checkbox" checked="checked">
-                <span class="lever"></span>
+                <span class="lever secondary_color"></span>
             </label>
         </div>
     {{else}}
@@ -212,7 +212,7 @@
             <label onclick="addUrlParameter('include_payroll', 'false')">
                 Payroll
                 <input type="checkbox" checked="checked">
-                <span class="lever"></span>
+                <span class="lever secondary_color"></span>
             </label>
         </div>
     {{else}}
@@ -231,7 +231,7 @@
             <label onclick="addUrlParameter('include_catastrophe', 'false')">
                 Catastrophe Ex.
                 <input type="checkbox" checked="checked">
-                <span class="lever"></span>
+                <span class="lever secondary_color"></span>
             </label>
         </div>
     {{else}}
@@ -243,10 +243,12 @@
             </label>
         </div>
     {{/if}}
+
+    <p></p>
     
     <div class="row">
-        <div class="button_wrapper col s2">
-            <a class="submit waves-effect waves-light btn btn-large" type="submit" href="/adding_entries">Add Entries</a>
+        <div class="button_wrapper center">
+            <a class="submit waves-effect waves-light btn btn-large main_color" type="submit" href="/adding_entries">Add Entries</a>
         </div>
     </div>
     <div class="row">

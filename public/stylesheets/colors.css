@@ -1,3 +1,12 @@
-.navbar {
+.main_color {
     background-color: #711984 !important;
+}
+.secondary_color {
+    background-color: #cf46ee !important;
+}
+.switch label input[type=checkbox]:checked + .lever:after { /*Button Colour*/
+  background-color: #711984;
+}
+.switch label .lever:after { /*Button Colour*/
+  background-color: #711984;
 }

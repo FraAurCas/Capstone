@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Prototype</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="../css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="../css/colors.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="../css/sidebar.css" type="text/css" rel="stylesheet" media="screen,projection" />
+</head>
+<body>
+  <main>
+    <!-- https://materializecss.com/grid.html -->
+
+    <nav class="navbar" role="navigation">
+      <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"></a>
+        <ul class="left hide-on-med-and-down">
+          
+          <li> <a href="#"> <img src="images/DDDlogo6.0.png" width="64" length="64"> </a> </li>
+        </ul>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="#">Insurance Comparison Software Prototype</a></li>
+        </ul>
+    
+        <ul id="nav-mobile" class="sidenav">
+          <li><a href="#">Navbar Link</a></li>
+        </ul>
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      </div>
+    </nav>
+  
+    <div class="container">
+      
+      <!--
+      <blockquote>
+        Click on the event name for more details!
+        Click on <i class="material-icons tiny">sort</i> to sort by that column, or items in <i
+          class="material-icons tiny">filter_list</i> columns to filter by that item.
+      </blockquote>
+      <div class="row">
+        <div class="col l3 s12 "> <i class="left material-icons">sort</i>Sorted by: Yes!</div>
+        <div class="col l3 offset-l6 ">
+           Position diffeently (left) for mobile 
+          <div class="right hide-on-small-only"><i class="left material-icons">filter_list</i>Filter: None</div>
+          <div class="left hide-on-med-and-up"><i class="left material-icons">filter_list</i>Filter: None</div>
+        </div>
+  
+      </div>
+      -->
+  
+      <!-- https://materializecss.com/table.html -->
+      <table class="highlight centered responsive-table">
+        <thead>
+          <th>Client Name</th>
+          <th>Office/Market</th>
+          <th>Placement Broker</th>
+          <th>Client Advocate/Account Executive</th>
+          <th>SIC Code/Industry</th>
+          <th>Revenue (Band)</th>
+          <th>Global Footprint (Number of Countries)</th>
+          <th>Limits</th>
+          <th>Losses</th>
+          <th>Retentions</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Bergen County Academies</td>
+            <td>Wayne Plaza II</td>
+            <td>Mr. Roberts</td>
+            <td>Mr. Mills</td>
+            <td>$139842</td>
+            <td>$32853</td>
+            <td>$198</td>
+            <td>$319031</td>
+            <td>$13042</td>
+            <td>$11</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sidebar">    
+      <form action="#">
+        <p>
+          <label>
+            <input type="checkbox" class="filled-in" checked="checked" />
+            <span>Office/Market</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input type="checkbox" class="filled-in" checked="checked" />
+            <span>Placement Broker</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input type="checkbox" class="filled-in" checked="checked" />
+            <span>Account Exec.</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input type="checkbox" class="filled-in" checked="checked" />
+            <span>SIC Code/Industry</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input type="checkbox" class="filled-in" checked="checked" />
+            <span>Revenue (Band)</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input type="checkbox" class="filled-in" checked="checked" />
+            <span>Global Footprint</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input type="checkbox" class="filled-in" checked="checked" />
+            <span>Limits</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input type="checkbox" class="filled-in" checked="checked" />
+            <span>Losses</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input type="checkbox" class="filled-in" checked="checked" />
+            <span>Retentions</span>
+          </label>
+        </p>
+      </form>
+    
+    </div>
+
+  </main>
+
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="../../bin/materialize.js"></script>
+  <script src="js/init.js"></script>
+  
+  <!--JavaScript at end of body for optimized loading-->
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  </body>
+</html>
