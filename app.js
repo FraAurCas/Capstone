@@ -10,6 +10,7 @@ var usersRouter = require('./routes/users');
 var mainRouter = require('./routes/main');
 var loginRouter = require('./routes/login');
 var adding_entriesRouter = require('./routes/adding_entries');
+var searchRouter = require('./routes/search');
 
 var accountsRouter = require('./routes/accounts');
 
@@ -50,6 +51,7 @@ app.use('/main', mainRouter);
 app.use('/login', loginRouter);
 app.use('/accounts', accountsRouter);
 app.use('/adding_entries', adding_entriesRouter);
+app.use('/search', searchRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
