@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
-    
+
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="/stylesheets/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link href="/stylesheets/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
@@ -11,10 +12,63 @@
     <link href="/stylesheets/sidebar.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link href="/stylesheets/general.css" type="text/css" rel="stylesheet" media="screen,projection" />
 </head>
-<body>
-    <div class="card">
 
+<body>
+    <div class="container">
+        <div class="card">
+
+            <h3>Broking Segment</h3>
+            <div class="row">
+                <div class="button_wrapper col s2">
+                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
+                        onclick="append(&#34;segment&#34;,&#34;select&#34;)">Select</a>
+                </div>
+                <div class="button_wrapper col s2">
+                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
+                        onclick="append(&#34;segment&#34;,&#34;middle&#34;)">Middle Market</a>
+                </div>
+                <div class="button_wrapper col s2">
+                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
+                        onclick="append(&#34;segment&#34;,&#34;large&#34;)">Large</a>
+                </div>
+            </div>
+            <br>
+        </div>
+        <div class="card">
+            <br>
+            <div class="row">
+                <div class="button_wrapper col s2">
+                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit" onclick="redirect()">Search</a>
+                </div>
+            </div>
+            <br>
         </div>
     </div>
 </body>
+
 </html>
+<script>
+    // this will have a function that takes an input string and adds it to one variable
+    var search = "/main?"
+    var isFirstConstraint = true;
+    var termArray = [];
+    function append(constraintType, term) {
+        if (!(termArray.includes(term)) && (!isFirstConstraint)){
+        search = search.concat("&" + constraintType + "_constraint=" + term);
+        console.log(search);
+    }
+        else if (isFirstConstraint) {
+        search = search.concat(constraintType + "_constraint=" + term);
+        isFirstConstraint = false;
+        console.log(search);
+    }
+    search = search.concat()
+    }
+    function redirect() {
+        console.log(window.location.host + search);
+        console.log(window.location.host);
+        returnUrl = window.location.href + "//" + window.location.host + "/search";
+        window.location.replace(window.location.host + search);
+    }
+
+</script>
