@@ -15,10 +15,6 @@ var router = express.Router();
 console.log('===============')
 console.log(hbs.handlebars.helpers);
 var con =  require('./database');
-con.connect(function (err) {
-    if (err) throw err;
-});
-
 
 //var accounts_data = require('../data/dummy_accounts');
 

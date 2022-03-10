@@ -12,8 +12,16 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res, next) {
   
 
-  if(req.body.entry_file != null) {
 
+  if(req.body.entry_file != null) {
+    const file = req.body.entry_file;
+    file.addEventListener('change', (event) => {
+      
+      var reader = FileReader();
+      var workbook = XLSX;
+
+
+    });
   }
 
   else {
