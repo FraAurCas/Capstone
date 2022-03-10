@@ -11,3 +11,7 @@
     margin-left: 20p;
     margin-right: 20p;
 }
+.fixed {
+    position: fixed;
+    z-index:9999;
+}
