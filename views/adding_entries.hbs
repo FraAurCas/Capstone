@@ -22,97 +22,71 @@
             <div class="row">
                 <div class="input-field col s6">
                     <input type="text" id="entry_region" name="entry_region" class="validate" data-length="32" required>
-                    <label for="password">Broker Region</label>
+                    <label for="entry_region">Broker Region</label>
                 </div>            
                 <div class="input-field col s6">
                     <input type="text" id="entry_industry" name="entry_industry" class="validate" data-length="32" required>
-                    <label for="password">Entry Industry</label>
+                    <label for="entry_industry">Entry Industry</label>
                 </div>
             </div>
             
             <div class="row">
                 <div class="input-field col s6">
                     <input type="text" id="entry_hazard" name="entry_hazard" class="validate" data-length="32" required>
-                    <label for="password">Hazard Entry</label>
+                    <label for="entry_hazard">Hazard Entry</label>
                 </div>    
                 <div class="input-field col s6">
-                    <input type="text" id="entry_revenue" name="entry_revenue" class="validate" data-length="32" required>
-                    <label for="password">Global Revenue</label>
+                    <input type="number" id="entry_revenue" name="entry_revenue" class="validate" data-length="32" required>
+                    <label for="entry_revenue">Global Revenue</label>
                 </div>
             </div>
 
             <div class="row">
                 <div class="input-field col s6">
-                    <input type="text" id="entry_units" name="entry_units" class="validate" data-length="32" required>
-                    <label for="password">Power Units</label>
+                    <input type="number" id="entry_units" name="entry_units" class="validate" data-length="32" required>
+                    <label for="entry_units">Power Units</label>
                 </div>
                 <div class="input-field col s6">
-                    <input type="text" id="entry_TIV" name="entry_TIV" class="validate" data-length="32" required>
-                    <label for="password">Total Insurable Value</label>
+                    <input type="number" id="entry_TIV" name="entry_TIV" class="validate" data-length="32" required>
+                    <label for="entry_TIV">Total Insurable Value</label>
                 </div>
             </div>
             
             <div class="row">
                 <div class="input-field col s6">
-                    <input type="text" id="entry_payroll" name="entry_payroll" class="validate" data-length="32" required>
-                    <label for="password">Payroll</label>
+                    <input type="number" id="entry_payroll" name="entry_payroll" class="validate" data-length="32" required>
+                    <label for="entry_payroll">Payroll</label>
                 </div> 
                 <div class="input-field col s6">
                     <input type="text" id="entry_exposure" name="entry_exposure" class="validate" data-length="32" required>
-                    <label for="password">Catastrophe Exposure</label>
+                    <label for="entry_exposure">Catastrophe Exposure</label>
                 </div>
             </div>
 
-            <div class="button_wrapper">
-                <button class="submit waves-effect waves-light btn" type="submit">Submit</button>
-            </div>
+            <center>
+                <div class="button_wrapper">
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                </div>
+            </center>
         </form>
+
     </div>
-</div>
-<script>
-    function addEntry() { 
-
-        const entry_ID = document.getElementById("entry_ID").value;
-        const entry_segment = document.getElementById("entry_segment").value;
-        const entry_region = document.getElementById("entry_region").value;
-        const entry_industry = document.getElementById("entry_industry").value;
-        const entry_hazard = document.getElementById("entry_hazard").value;
-        const entry_revenue = document.getElementById("entry_revenue").value;
-        const entry_units = document.getElementById("entry_units").value;
-        const entry_TIV = document.getElementById("entry_TIV").value;
-        const entry_payroll = document.getElementById("entry_payroll").value;
-        const entry_exposure = document.getElementById("entry_exposure").value;
-
-        public static boolean isNumber(String strNum) {
-            if (strNum == null) {
-                return false;
-            }
-            try {
-                double d = Double.parseDouble(strNum);
-            } catch (NumberFormatException nfe) {
-                return false;
-            }
-            return true;
-        }
-
-        
-
-
-        
-        var searchParams = new URLSearchParams(window.location.search)
-        searchParams.set("entry_ID", entry_ID)
-        searchParams.set("entry_segment", entry_segment)
-        searchParams.set("entry_region", entry_region)
-        searchParams.set("entry_industry", entry_industry)
-        searchParams.set("entry_hazard", entry_hazard)
-        searchParams.set("entry_revenue", entry_revenue)
-        searchParams.set("entry_units", entry_units)
-        searchParams.set("entry_TIV", entry_TIV)
-        searchParams.set("entry_payroll", entry_payroll)
-        searchParams.set("entry_exposure", entry_exposure)
-        searchParams.set("submit", true)
-        
-        window.location.search = searchParams.toString()
-    }
     
-</script>
+    <div class="card purple lighten-5">
+        <div class="card-content" text-align="center" >
+            <span class="card-title"><h1>Add Data Entries Via Document:</h1></span>
+        </div>
+        <form action="adding_entries" method="post">
+            <center>
+                <input type="file" id="entry_file" align="center" required> </input>
+                <label for="entry_file"></label>
+                
+                <br><br><br>
+                <div class="button_wrapper">
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                </div>
+            </center>
+        </form>
+
+    </div>   
+</div>

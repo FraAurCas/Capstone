@@ -3,15 +3,9 @@ var express = require('express');
 var router = express.Router();
 
 //Us connection pools, can make multiple connections at once
-var mysql = require('mysql');
 var account_data;
 
-var con = mysql.createConnection({
-    host: "devdb.c9lxwufrjy46.us-east-1.rds.amazonaws.com",
-    user: "root",
-    password: "Cas2Boh2Mas",
-    database: "DevDB"
-});
+var con = require('./database');
 
 to_ranges = function (result) { //Function which turns numerical values to ranges
     for (account of result) {
@@ -76,9 +70,6 @@ to_ranges = function (result) { //Function which turns numerical values to range
     return result;
 } 
 
-con.connect(function (err) {
-    if (err) throw err;
-});
 
 /* GET main page. */
 router.get('/', function (req, res, next) {

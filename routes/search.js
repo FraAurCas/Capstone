@@ -10,21 +10,12 @@
         extname: '.hbs'
     });
 
-    var mysql = require('mysql');
     // const hbsHelpers = require('../helpers/handlebars');
 
     console.log('===============')
     console.log(hbs.handlebars.helpers);
-    var con = mysql.createConnection({
-        host: "devdb.c9lxwufrjy46.us-east-1.rds.amazonaws.com",
-        user: "root",
-        password: "Cas2Boh2Mas",
-        database: "DevDB"
-    });
+    var con = require('./database');
 
-    con.connect(function (err) {
-        if (err) throw err;
-    });
 
     router.get('/', function(req,res, next) {
     res.render('search', {title: 'Search'});
