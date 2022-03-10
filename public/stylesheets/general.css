@@ -1,3 +1,13 @@
 .inline {
     float:left;
 }
+.search_buttons {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.search_button {
+    margin-left: 20p;
+    margin-right: 20p;
+}
