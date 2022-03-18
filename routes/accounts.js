@@ -42,7 +42,7 @@ var con =  require('./database');
 //GET the detailed pages from the database
 router.get('/:account_id', function(req,res,next){
     let account_id =req.params.account_id;
-    var individualQueryString = "SELECT * FROM devData WHERE ID = " + account_id +" LIMIT 1;";
+    var individualQueryString = "SELECT * FROM stringData WHERE ID = " + account_id +" LIMIT 1;";
     console.log(account_id);
 //    var individualQueryString = "SELECT "+ account_id+" FROM test_accounts"; 
 //    var individualQueryString = "SELECT * WHERE id BETWEEN "+ account_id+" AND "+ 1 + " FROM test_accounts"; 

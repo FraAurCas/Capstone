@@ -25,7 +25,7 @@ router.post('/', function(req, res, next) {
   }
 
   else {
-    var entry_ID = Number(req.body.entry_ID || NaN);
+    var entry_ID = (req.body.entry_ID || "");
     var entry_segment = req.body.entry_segment || "";
     var entry_region = req.body.entry_region || "";
     var entry_industry = req.body.entry_industry || "";
@@ -36,7 +36,7 @@ router.post('/', function(req, res, next) {
     var entry_payroll = req.body.entry_payroll || "";
     var entry_exposure = req.body.entry_exposure || "";
   
-    con.query("INSERT INTO devData VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);",
+    con.query("INSERT INTO stringData VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);",
         [entry_ID, 
           entry_segment, 
           entry_region, 
