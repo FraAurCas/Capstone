@@ -18,6 +18,10 @@
                 {{/if}}
             </div>
             {{/each}}
+            <div class="search_button">
+                <a class="submit waves-effect waves-light btn btn-large main_color"
+                    onclick="addUrlParameter('{{real_param}}', 'NULL')">Skip</a>
+            </div>
         </div>
     </div>
 </div>
@@ -30,6 +34,7 @@
         var searchParams = new URLSearchParams(newURL.search)
         searchParams.set(param, to_add)
         newURL.search = searchParams.toString();
+        //Remove all empty-string searches, as those are what represent not having any search criterion
 
         window.location.assign(newURL.origin.toString() + newURL.pathname.toString() + "?" + newURL.search.toString())
     }
