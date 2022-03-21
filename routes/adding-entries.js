@@ -20,7 +20,7 @@ router.post('/', function(req, res, next) {
     var entry_payroll = req.body.entry_payroll || "";
     var entry_exposure = req.body.entry_exposure || "";
   
-    con.query("INSERT INTO devData VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);",
+    con.query("INSERT INTO stringData VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);",
         [entry_ID, 
           entry_segment, 
           entry_region, 
