@@ -3,9 +3,9 @@
             <span class="card-title"><h1>Add Data Entries Via Document:</h1></span>
 
         </div>
-        <form action="file-upload" method="POST">
+        <form action="file-upload" method="POST" enctype="multipart/form-data">
             <center>
-                <input type="file" id="entry_file" align="center" accept=".xlsx" required> </input>
+                <input type="file" id="entry_file" name="document" align="center" accept=".xlsx" required> </input>
                 <label for="entry_file"></label>
                 
                 <div class="button_wrapper">
