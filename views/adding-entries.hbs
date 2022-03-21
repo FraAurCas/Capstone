@@ -2,12 +2,13 @@
     <div class="card purple lighten-5">
         <div class="card-content">
             <span class="card-title"><h1>Add Data Entries:</h1></span>
-
-                
+             <div class="button_wrapper">
+                <a class="submit waves-effect waves-light btn btn-large main_color" type="submit" href="/file-upload">Upload File</a>
+            </div>
         </div>
 
 
-        <form action="adding_entries" method="POST">
+        <form action="adding-entries" method="POST">
             <div class="row">
                 <div class="input-field col s6">
                     <input type="text" id="entry_ID" name="entry_ID" class="validate" data-length="32" required>
@@ -65,28 +66,11 @@
 
             <center>
                 <div class="button_wrapper">
-                    <button class="btn btn-primary" type="submit">Submit</button>
+                    <button class="submit waves-effect waves-light btn btn-large main_color" type="submit">Submit</button>
                 </div>
             </center>
         </form>
 
     </div>
-    
-    <div class="card purple lighten-5">
-        <div class="card-content" text-align="center" >
-            <span class="card-title"><h1>Add Data Entries Via Document:</h1></span>
-        </div>
-        <form action="adding_entries" method="post">
-            <center>
-                <input type="file" id="entry_file" align="center" required> </input>
-                <label for="entry_file"></label>
-                
-                <br><br><br>
-                <div class="button_wrapper">
-                    <button class="btn btn-primary" type="submit">Submit</button>
-                </div>
-            </center>
-        </form>
-
-    </div>   
+   
 </div>

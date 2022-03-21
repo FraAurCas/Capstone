@@ -9,10 +9,10 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var mainRouter = require('./routes/main');
 var loginRouter = require('./routes/login');
-var adding_entriesRouter = require('./routes/adding_entries');
+var addingentriesRouter = require('./routes/adding-entries');
 var searchRouter = require('./routes/search');
 var searchBetterRouter = require('./routes/search_better')
-
+var fileuploadRouter = require('./routes/file-upload')
 var accountsRouter = require('./routes/accounts');
 
 var app = express();
@@ -49,9 +49,10 @@ app.use('/users', usersRouter);
 app.use('/main', mainRouter);
 app.use('/login', loginRouter);
 app.use('/accounts', accountsRouter);
-app.use('/adding_entries', adding_entriesRouter);
+app.use('/adding-entries', addingentriesRouter);
 app.use('/search', searchRouter);
 app.use('/search_better', searchBetterRouter);
+app.use('/file-upload', fileuploadRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
