@@ -1,30 +1,14 @@
 var express = require('express');
 var router = express.Router();
 var con = require('./database');
-var XLSX = require("xlsx");
-
+var xlsx = require("xlsx");
 
 router.get('/', function(req, res, next) {
-  res.render('adding_entries', { title: 'Adding-Entries' });
+  res.render('adding-entries', { title: 'Adding Entries' });
 });
- 
     
 router.post('/', function(req, res, next) {
-  
 
-
-  if(req.body.entry_file != null) {
-    const file = req.body.entry_file;
-    file.addEventListener('change', (event) => {
-      
-      var reader = FileReader();
-      var workbook = XLSX;
-
-
-    });
-  }
-
-  else {
     var entry_ID = Number(req.body.entry_ID || NaN);
     var entry_segment = req.body.entry_segment || "";
     var entry_region = req.body.entry_region || "";
@@ -50,13 +34,9 @@ router.post('/', function(req, res, next) {
         function (err, result) {
           if (err) throw err;
           console.log("1 record inserted");
-        
     }); 
-  }
 
-  res.render('adding_entries', { title: 'Adding-Entries' });
+  res.render('adding-entries', { title: 'Adding-Entries' });
 });
 
-  
-  
 module.exports = router;
