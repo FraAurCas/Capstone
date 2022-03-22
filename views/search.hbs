@@ -1,341 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
-
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="/stylesheets/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection" />
-    <link href="/stylesheets/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
-    <link href="/stylesheets/colors.css" type="text/css" rel="stylesheet" media="screen,projection" />
-    <link href="/stylesheets/sidebar.css" type="text/css" rel="stylesheet" media="screen,projection" />
-    <link href="/stylesheets/general.css" type="text/css" rel="stylesheet" media="screen,projection" />
-</head>
-
-<body>
-    <div class="container">
-        <div class="card">
-
-            <h3>Broking Segment</h3>
-            <div class="row">
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('segment','select')">Select</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('segment','middle%20market')">Middle%20Market</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('segment','large%20and%20complex')">Large%20and%20Complex</a>
-                </div>
-            </div>
-            <br>
+<div class="container">
+    <div class="card purple lighten-5">
+        <div class="card-content">
+            <span class="card-title">
+                <h1>Search for entries: </h1>
+            </span>
         </div>
-        <div class="card">
 
-            <h3>Broking Region</h3>
-            <div class="row">
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('region','west')">West</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('region','northeast')">Northeast</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('region','southeast')">Southeast</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('region','midwest')">Midwest</a>
+        <div class="row">
+            <div class="row col s6">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">fingerprint</i>
+                    <input type="text" id="autocomplete-input" class="autocomplete ID">
+                    <label for="autocomplete-input">ID</label>
                 </div>
             </div>
-            <br>
-        </div>
-        <div class="card">
-
-            <h3>Industry</h3>
-            <div class="row">
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('industry','educational')">Educational</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('industry','automotive')">Automotive</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('industry','chemical')">Chemical</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('industry','construction')">Construction</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('industry','entertainment')">Arts/Entertainment/TV/Movie</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('industry','energy')">Energy</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('industry','financial')">Financial</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('industry','beverage')">Food/Beverage/Agribusiness</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('industry','life')">Life-Sciences</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('industry','public')">Public-Entity</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('industry','rail')">Rail</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('industry','logistics')">Logistics/Transportation</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('industry','manufacturing')">Manufacturing</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('industry','mining')">Mining</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('industry','profit')">Non-Profit</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('industry','staffing')">Staffing</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('industry','professional')">Professional-Services</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('industry','real%20estate')">Real-Estate</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('industry','retail')">Retail</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('industry','technology')">Technology</a>
+            <div class="row col s6">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">fingerprint</i>
+                    <input type="text" id="autocomplete-input" class="autocomplete SEG">
+                    <label for="autocomplete-input">Broking Segment</label>
                 </div>
             </div>
-            <br>
-        </div>
-        <div class="card">
-
-            <h3>Hazard Group</h3>
-            <div class="row">
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('hazardGroup','low')">Low</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('hazardGroup','medium')">Medium</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('hazardGroup','high')">High</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('hazardGroup','very')">VeryHigh</a>
-                </div>
-            </div>
-            <br>
-        </div>
-        <div class="card">
-
-            <h3>Global Revenue</h3>
-            <div class="row">
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('revenue','500000000')">&#60;&#36;500&#44;000&#44;000</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('revenue','500000001')">&#36;500&#44;000&#44;001</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('revenue','1000000001')">&#36;1&#44;000&#44;000&#44;001</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('revenue','10000000001')">&#36;10&#44;000&#44;000&#44;001</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('revenue','50000000001')">&#62;&#36;50&#44;000&#44;000&#44;001</a>
-                </div>
-            </div>
-            <br>
-        </div>
-        <div class="card">
-
-            <h3>Power Units</h3>
-            <div class="row">
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('powerUnits','50')">&#60;50</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('powerUnits','51')">51</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('powerUnits','101')">101</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('powerUnits','501')">501</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('powerUnits','2001')">&#62;2&#44;001</a>
-                </div>
-            </div>
-            <br>
-        </div>
-        <div class="card">
-
-            <h3>Total Insurable Value</h3>
-            <div class="row">
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('insurableValue','1000000000')">&#60;&#36;1&#44;000&#44;000&#44;000</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('insurableValue','1000000001')">&#36;1&#44;000&#44;000&#44;001</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('insurableValue','10000000001')">&#36;10&#44;000&#44;000&#44;001</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('insurableValue','50000000001')">&#36;50&#44;000&#44;000&#44;001</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('insurableValue','100000000001')">&#62;&#36;100&#44;000&#44;000&#44;001</a>
-                </div>
-            </div>
-            <br>
-        </div>
-        <div class="card">
-
-            <h3>Payroll</h3>
-            <div class="row">
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('payroll','10000000')">&#60;&#36;1&#44;000&#44;000</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('payroll','10000001')">&#36;10&#44;000&#44;001</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('payroll','100000001')">&#36;100&#44;000&#44;001</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('payroll','500000001')">&#36;&#44;500&#44;000&#44;001</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('payroll','2000000001')">&#36;2&#44;000&#44;000&#44;001</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('payroll','10000000001')">&#62;&#36;10&#44;000&#44;000&#44;001</a>
-                </div>
-            </div>
-            <br>
-        </div>
-        <div class="card">
-
-            <h3>Catastrophe Exposure</h3>
-            <div class="row">
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('catastrophe','hurricane%2C%20earthquake')">Hurricane/Earthquake</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('catastrophe','hurricane')">Eathquake</a>
-                </div>
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="append('catastrophe','hurricane')">Hurricane</a>
-                </div>
-            </div>
-            <br>
-        </div>
-        <div class="card">
-            <br>
-            <div class="row">
-                <div class="button_wrapper col s2">
-                    <a class="submit waves-effect waves-light btn btn-large main_color" type="submit"
-                        onclick="redirect()">Search</a>
-                </div>
-            </div>
-            <br>
         </div>
     </div>
-</body>
+</div>
 
-</html>
 <script>
-    // this will have a function that takes an input string and adds it to one variable
-    var search = "/main?"
-    var isFirstConstraint = true;
-    var termArray = [];
-    function append(constraintType, term) {
-        if (!(termArray.includes(term)) && (!isFirstConstraint)) {
-            search = search.concat("&" + constraintType + "_constraint=" + term);
-            termArray.push(term)
-            console.log(search);
-        }
-        else if (isFirstConstraint) {
-            search = search.concat(constraintType + "_constraint=" + term);
-            isFirstConstraint = false;
-            termArray.push(term);
-            console.log(search);
-        }
-        search = search.concat()
-    }
-    function redirect() {
-        console.log(window.location.host + search);
-        console.log(window.location.host);
-        returnUrl = window.location.href + "//" + window.location.host + "/search";
-        window.location.replace(search);
-    }
-
+    document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.ID'); //Create ID dropdown
+            M.Autocomplete.init(elems);
+            for (elem in elems) { 
+                var instance = M.Autocomplete.getInstance(elem)
+                instance.updateData({
+                    //Handlebars in JS, yummy
+                    {{#each IDVals}} 
+                    "{{this}}" : null,
+                    {{/each}}
+                    "" : null
+                });
+            }
+        });
 </script>
