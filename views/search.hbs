@@ -10,14 +10,14 @@
             <div class="row col s6">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">fingerprint</i>
-                    <input type="text" id="autocomplete-input" class="autocomplete ID">
+                    <input type="text" id="ID-input" class="autocomplete">
                     <label for="autocomplete-input">ID</label>
                 </div>
             </div>
             <div class="row col s6">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">fingerprint</i>
-                    <input type="text" id="autocomplete-input" class="autocomplete SEG">
+                    <input type="text" id="autocomplete-input" class="autocomplete">
                     <label for="autocomplete-input">Broking Segment</label>
                 </div>
             </div>
@@ -27,17 +27,20 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-            var elems = document.querySelectorAll('.ID'); //Create ID dropdown
-            M.Autocomplete.init(elems);
-            for (elem in elems) { 
-                var instance = M.Autocomplete.getInstance(elem)
-                instance.updateData({
-                    //Handlebars in JS, yummy
-                    {{#each IDVals}} 
-                    "{{this}}" : null,
-                    {{/each}}
-                    "" : null
-                });
-            }
+        var elems = document.querySelectorAll('#ID-input'); //Create ID dropdown
+        console.log(elems[0])
+        var instances = M.Autocomplete.init(elems, { 
+            data: {
+                //Handlebars in JS, yummy
+                {{#each IDVals}} 
+                "{{this}}" : null,
+                {{/each}}
+                "" : null
+            },
+            minLength : 0,
+            limit : 6
         });
+
+        console.log("done!"); 
+    });
 </script>
