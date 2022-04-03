@@ -1,14 +1,15 @@
 {{#with array}}
 <div class="container">
-    <div class="card purple lighten-5">
+    <div id='header' class="card purple lighten-5">
         <span class="card-title">
             <h1><center>{{0.ID}}</center></h1>
         </span>
         <center>
             <div class="button_wrapper">
-                <button class="submit waves-effect waves-light btn btn-large main_color" type="submit">Edit Account</button>
+                <button class="submit waves-effect waves-light btn btn-large main_color" type="submit" onclick="editEntry()">Edit Account</button>
             </div>
         </center>
+        
     </div>
 </div>
 <!--<div class="card-content">-->
@@ -48,3 +49,94 @@
 </div>
 </div>
 {{/with}}
+
+
+<script type="text/javascript" src="js/materialize.min.js"></script>
+
+<script> 
+    
+    var val = true;
+    var orig = document.getElementById('header').innerHTML;
+    var form = 
+    `{{#with array}}
+        <form action="{{0.ID}}" method="POST">
+            <div class="row">
+                <div class="input-field col s2.5">
+                    <input value="{{0.ID}}" type="text" id="entry_ID" name="entry_ID" class="validate" data-length="32" required>
+                    <label for="entry_ID" class="active">Client ID</label>
+                </div> 
+                <div class="input-field col s2.5">
+                    <input value="{{0.segment}}" type="text" id="entry_segment" name="entry_segment" class="validate" data-length="32" required>
+                    <label for="entry_segment" class="active">Broking Segment</label>
+                </div>
+                <div class="input-field col s2.5">
+                    <input value="{{0.region}}" type="text" id="entry_region" name="entry_region" class="validate" data-length="32" required>
+                    <label for="entry_region" class="active">Broker Region</label>
+                </div>            
+                <div class="input-field col s2.5">
+                    <input value="{{0.industry}}" type="text" id="entry_industry" name="entry_industry" class="validate" data-length="32" required>
+                    <label for="entry_industry" class="active">Entry Industry</label>
+                </div>
+                <div class="input-field col s2.5">
+                    <input value="{{0.hazardGroup}}" type="text" id="entry_hazard" name="entry_hazard" class="validate" data-length="32" required>
+                    <label for="entry_hazard" class="active">Hazard Entry</label>
+                </div>    
+            </div>
+            <div class="row">
+                <div class="input-field col s2.5">
+                    <input value="{{0.revenue}}" type="text" id="entry_revenue" name="entry_revenue" class="validate" data-length="32" required>
+                    <label for="entry_revenue" class="active">Global Revenue</label>
+                </div>
+                <div class="input-field col s2.5">
+                    <input value="{{0.powerUnits}}" type="text" id="entry_units" name="entry_units" class="validate" data-length="32" required>
+                    <label for="entry_units" class="active">Power Units</label>
+                </div>
+                <div class="input-field col s2.5">
+                    <input value="{{0.insurableValue}}" type="text" id="entry_TIV" name="entry_TIV" class="validate" data-length="32" required>
+                    <label for="entry_TIV" class="active">Total Insurable Value</label>
+                </div>
+                <div class="input-field col s2.5">
+                    <input value="{{0.payroll}}" type="text" id="entry_payroll" name="entry_payroll" class="validate" data-length="32" required>
+                    <label for="entry_payroll" class="active">Payroll</label>
+                </div> 
+                <div class="input-field col s2.5">
+                    <input value="{{0.catastrophe}}" type="text" id="entry_exposure" name="entry_exposure" class="validate" data-length="32" required>
+                    <label for="entry_exposure" class="active">Catastrophe Exposure</label>
+                </div>
+            </div>
+
+            <center>
+                <div class="button_wrapper">
+                    <button class="submit waves-effect waves-light btn btn-large main_color" type="submit">Submit</button>
+                </div>
+            </center>
+        </form>
+
+        <br>
+        <form action="remove" method="POST">
+            <center>
+                <div class="button_wrapper">
+                    <button class="submit waves-effect waves-light btn btn-large main_color" type="submit">Remove Entry</button>
+                </div>
+            </center>
+        </form>
+
+    {{/with}}`;
+
+    function editEntry() {
+        
+        if(val) {
+            document.getElementById('header').innerHTML += form;
+            val = false;
+            console.log("fuck")
+        }
+
+        else {
+            document.getElementById('header').innerHTML = orig;
+            val = true;
+            console.log("hey")
+        }
+            
+    }
+
+</script>
