@@ -18,24 +18,37 @@ console.log('===============')
 console.log(hbs.handlebars.helpers);
 var con = require('./database');
 
+//Very Jank Recusrion
 
-router.get('/', function(req,res, next) {
-    con.query("SELECT * FROM stringData", function (err, result, fields) {
-        if (err) throw err;
-        console.log(result);
-        
-    });
+params = { 
+    title: 'Search', 
+}
 
-    con.query('SELECT * FROM table WHERE col=?', col, function (err, rows) {
-        async.each(rows, function (row, callback) {
-            con.query('SELECT * FROM other_table WHERE col=?', row.col, callback);
-        }, function () {
-            // all queries are done
-        })
-    });
-    
+keys = [
+    "ID", "segment"
+]
 
-    res.render('search', {title: 'Search', IDVals: ["One", "Two", "Three"]});
+function search_render(depth, req, res, next) { //Recursive function to deal with async stuff
+    if (depth === -1) {
+        res.render('search', params)
+    }
+    else {
+        con.query("SELECT DISTINCT " + keys[depth] + " FROM stringData", function (err, result, fields) {
+            if (err) throw err;
+
+            params[keys[depth]] = [];
+            for (var i = 0; i < result.length; i++) {
+                params[keys[depth]].push(result[i][keys[depth]])
+            }
+            
+            search_render(depth - 1, req, res, next);
+        });
+    }
+}
+
+
+router.get('/', function(req, res, next) {
+    search_render(keys.length - 1, req, res, next);
 }); 
 
 

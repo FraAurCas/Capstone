@@ -16,8 +16,8 @@
             </div>
             <div class="row col s6">
                 <div class="input-field col s12">
-                    <i class="material-icons prefix">fingerprint</i>
-                    <input type="text" id="autocomplete-input" class="autocomplete">
+                    <i class="material-icons prefix">language</i>
+                    <input type="text" id="segment-input" class="autocomplete">
                     <label for="autocomplete-input">Broking Segment</label>
                 </div>
             </div>
@@ -40,6 +40,32 @@
             minLength : 0,
             limit : 6
         });
+
+        var elems = document.querySelectorAll('#ID-input'); //Create ID dropdown
+        var id_instances = M.Autocomplete.init(elems, { 
+            data: {
+                //Handlebars in JS, yummy
+                {{#each ID}} 
+                "{{this}}" : null,
+                {{/each}}
+                "" : null //TODO make it not do this...
+            },
+            minLength : 0,
+            limit : 6
+        });
+
+        var elems = document.querySelectorAll("#segment-input"); //Create ID dropdown
+        var segment_instances = M.Autocomplete.init(elems, { 
+            data: {
+                //Handlebars in JS, yummy
+                {{#each segment}} 
+                "{{this}}" : null,
+                {{/each}}
+                "" : null //TODO make it not do this...
+            },
+            minLength : 0,
+            limit : 6
+        });        
 
         console.log("done!"); 
     });
