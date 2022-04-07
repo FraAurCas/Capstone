@@ -22,6 +22,75 @@
                 </div>
             </div>
         </div>
+        
+        <div class="row">
+            <div class="row col s6">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">fingerprint</i>
+                    <input type="text" id="region-input" class="autocomplete">
+                    <label for="autocomplete-input">Region</label>
+                </div>
+            </div>
+            <div class="row col s6">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">language</i>
+                    <input type="text" id="industry-input" class="autocomplete">
+                    <label for="autocomplete-input">Industry</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="row col s6">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">fingerprint</i>
+                    <input type="text" id="hazardGroup-input" class="autocomplete">
+                    <label for="autocomplete-input">Hazard Group</label>
+                </div>
+            </div>
+            <div class="row col s6">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">language</i>
+                    <input type="text" id="revenue-input" class="autocomplete">
+                    <label for="autocomplete-input">Revenue</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="row col s6">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">fingerprint</i>
+                    <input type="text" id="powerUnits-input" class="autocomplete">
+                    <label for="autocomplete-input">Power Units</label>
+                </div>
+            </div>
+            <div class="row col s6">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">language</i>
+                    <input type="text" id="insurableValue-input" class="autocomplete">
+                    <label for="autocomplete-input">Insurable Value</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="row col s6">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">fingerprint</i>
+                    <input type="text" id="payroll-input" class="autocomplete">
+                    <label for="autocomplete-input">Payroll</label>
+                </div>
+            </div>
+            <div class="row col s6">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">language</i>
+                    <input type="text" id="catastrophe-input" class="autocomplete">
+                    <label for="autocomplete-input">Catastrophe</label>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 
@@ -30,19 +99,6 @@
         var elems = document.querySelectorAll('#ID-input'); //Create ID dropdown
         console.log(elems[0])
         var instances = M.Autocomplete.init(elems, { 
-            data: {
-                //Handlebars in JS, yummy
-                {{#each IDVals}} 
-                "{{this}}" : null,
-                {{/each}}
-                "" : null //TODO make it not do this...
-            },
-            minLength : 0,
-            limit : 6
-        });
-
-        var elems = document.querySelectorAll('#ID-input'); //Create ID dropdown
-        var id_instances = M.Autocomplete.init(elems, { 
             data: {
                 //Handlebars in JS, yummy
                 {{#each ID}} 
@@ -66,6 +122,110 @@
             minLength : 0,
             limit : 6
         });        
+
+        var elems = document.querySelectorAll('#region-input'); //Create ID dropdown
+        var id_instances = M.Autocomplete.init(elems, { 
+            data: {
+                //Handlebars in JS, yummy
+                {{#each region}} 
+                "{{this}}" : null,
+                {{/each}}
+                "" : null //TODO make it not do this...
+            },
+            minLength : 0,
+            limit : 6
+        });
+
+        var elems = document.querySelectorAll('#industry-input'); //Create ID dropdown
+        var id_instances = M.Autocomplete.init(elems, { 
+            data: {
+                //Handlebars in JS, yummy
+                {{#each industry}} 
+                "{{this}}" : null,
+                {{/each}}
+                "" : null //TODO make it not do this...
+            },
+            minLength : 0,
+            limit : 6
+        });
+
+        var elems = document.querySelectorAll('#hazardGroup-input'); //Create ID dropdown
+        var id_instances = M.Autocomplete.init(elems, { 
+            data: {
+                //Handlebars in JS, yummy
+                {{#each hazardGroup}} 
+                "{{this}}" : null,
+                {{/each}}
+                "" : null //TODO make it not do this...
+            },
+            minLength : 0,
+            limit : 6
+        });
+
+        var elems = document.querySelectorAll('#revenue-input'); //Create ID dropdown
+        var id_instances = M.Autocomplete.init(elems, { 
+            data: {
+                //Handlebars in JS, yummy
+                {{#each revenue}} 
+                "{{this}}" : null,
+                {{/each}}
+                "" : null //TODO make it not do this...
+            },
+            minLength : 0,
+            limit : 6
+        });
+
+        var elems = document.querySelectorAll('#powerUnits-input'); //Create ID dropdown
+        var id_instances = M.Autocomplete.init(elems, { 
+            data: {
+                //Handlebars in JS, yummy
+                {{#each powerUnits}} 
+                "{{this}}" : null,
+                {{/each}}
+                "" : null //TODO make it not do this...
+            },
+            minLength : 0,
+            limit : 6
+        });
+
+        var elems = document.querySelectorAll('#insurableValue-input'); //Create ID dropdown
+        var id_instances = M.Autocomplete.init(elems, { 
+            data: {
+                //Handlebars in JS, yummy
+                {{#each insurableValue}} 
+                "{{this}}" : null,
+                {{/each}}
+                "" : null //TODO make it not do this...
+            },
+            minLength : 0,
+            limit : 6
+        });
+
+        var elems = document.querySelectorAll('#payroll-input'); //Create ID dropdown
+        var id_instances = M.Autocomplete.init(elems, { 
+            data: {
+                //Handlebars in JS, yummy
+                {{#each payroll}} 
+                "{{this}}" : null,
+                {{/each}}
+                "" : null //TODO make it not do this...
+            },
+            minLength : 0,
+            limit : 6
+        });
+
+        var elems = document.querySelectorAll('#catastrophe-input'); //Create ID dropdown
+        var id_instances = M.Autocomplete.init(elems, { 
+            data: {
+                //Handlebars in JS, yummy
+                {{#each catastrophe}} 
+                "{{this}}" : null,
+                {{/each}}
+                "" : null //TODO make it not do this...
+            },
+            minLength : 0,
+            limit : 6
+        });
 
         console.log("done!"); 
     });

@@ -25,7 +25,7 @@ params = {
 }
 
 keys = [
-    "ID", "segment"
+    "ID", "segment", "region", "industry", "hazardGroup", "revenue", "powerUnits", "insurableValue", "payroll", "catastrophe"
 ]
 
 function search_render(depth, req, res, next) { //Recursive function to deal with async stuff
