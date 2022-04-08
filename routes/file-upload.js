@@ -21,11 +21,26 @@ router.post('/', function(req, res, next) {
       var workbook = XLSX.readFile(file[1].filepath);
       var sheet_name_list = workbook.SheetNames;
       var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[0]]);
-      console.log(xlData);
+
+      for(i = 1; i < xlData.length; i++) {
+        entry = [];
+        for (data in xlData[i]) {
+          entry.push(xlData[i][data]);
+        }
+        uploadEntry(entry);
+      }
     }
   })
-    
-  res.render('file-upload', { title: 'File Upload' });
 });
 
+function uploadEntry(a) {
+
+  con.query("INSERT INTO stringData VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);",
+      a,
+      function (err, result) {
+        if (err) throw err;
+        console.log("1 record inserted");
+      });
+    }
+    
 module.exports = router;
