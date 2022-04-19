@@ -21,6 +21,8 @@
 }
 .table_head {
     background-color: white;
-    border-bottom: 1px solid grey;
-    
+    border-bottom: 1px solid grey;   
+}
+.pad {
+    padding-bottom: 50px;
 }
