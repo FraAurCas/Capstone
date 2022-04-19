@@ -27,33 +27,33 @@
 
     <table class="highlight centered responsive-table">
         <thead>
-            <th>ID</th>
+            <th class="sticky table_head">ID</th>
             {{#if include_segment}}
-                <th>Broking Segment</th>
+                <th class="sticky table_head">Broking Segment</th>
             {{/if}}
             {{#if include_region}}
-                <th>Broking Region</th>
+                <th class="sticky table_head">Broking Region</th>
             {{/if}}
             {{#if include_industry}}
-                <th>Industry</th>
+                <th class="sticky table_head">Industry</th>
             {{/if}}
             {{#if include_hazardGroup}}
-                <th>Hazard Group</th>
+                <th class="sticky table_head">Hazard Group</th>
             {{/if}}
             {{#if include_revenue}}
-                <th>Global Revenue</th>
+                <th class="sticky table_head">Global Revenue</th>
             {{/if}}
             {{#if include_powerUnits}}
-                <th>Power Units</th>
+                <th class="sticky table_head">Power Units</th>
             {{/if}}
             {{#if include_insurableVaue}}
-                <th>Total Insurable Value</th>
+                <th class="sticky table_head">Total Insurable Value</th>
             {{/if}}
             {{#if include_payroll}}
-                <th>Payroll</th>
+                <th class="sticky table_head">Payroll</th>
             {{/if}}
             {{#if include_catastrophe}}
-                <th>Catastrophe Exposure</th>
+                <th class="sticky table_head">Catastrophe Exposure</th>
             {{/if}}
         </thead>
         <tbody>
@@ -247,17 +247,13 @@
     <p></p>
     
     <div class="row">
-        <div class="button_wrapper center">
+        <div class="button_wrapper col s2">
             <a class="submit waves-effect waves-light btn btn-large main_color" type="submit" href="/adding-entries">Add Entries</a>
         </div>
     </div>
     <div class="row">
         <div class="button_wrapper col s2">
             <a class="submit waves-effect waves-light btn btn-large main_color" type="submit" href="/search">Search</a>
-        </div>
-    </div><div class="row">
-        <div class="button_wrapper col s2">
-            <a class="submit waves-effect waves-light btn btn-large main_color" type="submit" href="/search_better">Search_Better</a>
         </div>
     </div>
 </div>

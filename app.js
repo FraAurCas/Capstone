@@ -11,7 +11,6 @@ var mainRouter = require('./routes/main');
 var loginRouter = require('./routes/login');
 var addingentriesRouter = require('./routes/adding-entries');
 var searchRouter = require('./routes/search');
-var searchBetterRouter = require('./routes/search_better')
 var fileuploadRouter = require('./routes/file-upload')
 var accountsRouter = require('./routes/accounts');
 
@@ -51,7 +50,6 @@ app.use('/login', loginRouter);
 app.use('/accounts', accountsRouter);
 app.use('/adding-entries', addingentriesRouter);
 app.use('/search', searchRouter);
-app.use('/search_better', searchBetterRouter);
 app.use('/file-upload', fileuploadRouter);
 
 // catch 404 and forward to error handler
