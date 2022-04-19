@@ -4,62 +4,28 @@
         <span class="card-title">
             <h1><center>{{0.ID}}</center></h1>
         </span>
-        <center>
-            <div class="button_wrapper">
+        <div class="row center">
+            <div class="button_wrapper col s6">
                 <button class="submit waves-effect waves-light btn btn-large main_color" type="submit" onclick="editEntry()">Edit Account</button>
             </div>
-        </center>
-        
-    </div>
-</div>
-<!--<div class="card-content">-->
-<div class="container">
-<div class="card">
-    <table class="highlight centered responsive-table">
-        <thead>
-            <tr>
-                <th>Broking Segment </th> 
-                <th>Broking Region </th>
-                <th>Industry</th>
-                <th>Hazard Group</th>
-                <th>Revenue</th>
-                <th>Power Units</th>
-                <th>Insurable Value</th>
-                <th>Payroll</th>
-                <th>Catastrophe Exposure</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>{{0.segment}}</td>
-                <td>{{0.region}}</td>
-                <td>{{0.industry}}</td>
-                <td>{{0.hazardGroup}}</td>
-                <td>{{0.revenue}}</td>
-                <td>{{0.powerUnits}}</td>
-                <td>{{0.insurableValue}}</td>
-                <td>{{0.payroll}}</td>  
-                <td>{{0.catastrophe}}</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-</div>
-<div class="container account-details">{{"Here we can have more text for a description"}}</div>
-</div>
-</div>
-{{/with}}
 
 
-<script type="text/javascript" src="js/materialize.min.js"></script>
+            <div class="button_wrapper col s6">
+                <button class="submit waves-effect waves-light btn btn-large main_color" type="submit" onclick="openModal()" >Remove Entry</button>
+            </div>
 
-<script> 
-    
-    var val = true;
-    var orig = document.getElementById('header').innerHTML;
-    var form = 
-    `{{#with array}}
-        <form action="{{0.ID}}" method="POST">
+            <div id="confModal" class="modal">
+                <div class="modal-content">
+                    <h4>Modal Header</h4>
+                    <p>A bunch of text</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+                </div>
+            </div>
+        </div>
+
+        <form id="editForm" action="{{0.ID}}" method="POST" hidden="true">
             <div class="row">
                 <div class="input-field col s2.5">
                     <input value="{{0.ID}}" type="text" id="entry_ID" name="entry_ID" class="validate" data-length="32" required>
@@ -111,32 +77,70 @@
                 </div>
             </center>
         </form>
+        
+    </div>
+</div>
+<!--<div class="card-content">-->
+<div class="container">
+<div class="card">
+    <table class="highlight centered responsive-table">
+        <thead>
+            <tr>
+                <th>Broking Segment </th> 
+                <th>Broking Region </th>
+                <th>Industry</th>
+                <th>Hazard Group</th>
+                <th>Revenue</th>
+                <th>Power Units</th>
+                <th>Insurable Value</th>
+                <th>Payroll</th>
+                <th>Catastrophe Exposure</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{0.segment}}</td>
+                <td>{{0.region}}</td>
+                <td>{{0.industry}}</td>
+                <td>{{0.hazardGroup}}</td>
+                <td>{{0.revenue}}</td>
+                <td>{{0.powerUnits}}</td>
+                <td>{{0.insurableValue}}</td>
+                <td>{{0.payroll}}</td>  
+                <td>{{0.catastrophe}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+<div class="container account-details">{{"Here we can have more text for a description"}}</div>
+</div>
+</div>
+{{/with}}
 
-        <br>
-        <form action="remove" method="POST">
-            <center>
-                <div class="button_wrapper">
-                    <button class="submit waves-effect waves-light btn btn-large main_color" type="submit">Remove Entry</button>
-                </div>
-            </center>
-        </form>
-
-    {{/with}}`;
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script> 
+    var val = true;
 
     function editEntry() {
         
         if(val) {
-            document.getElementById('header').innerHTML += form;
+            document.getElementById('editForm').style.display = 'block';
             val = false;
-            console.log("fuck")
         }
 
         else {
-            document.getElementById('header').innerHTML = orig;
+            document.getElementById('editForm').style.display = 'none';
             val = true;
-            console.log("hey")
         }
             
-    }
+    };
+
+    function openModal() {  
+        var elems = document.querySelectorAll('#confModal');
+        options = {};
+        var instances = M.Modal.init(elems, options);
+        instances[0].open();
+    };
 
 </script>
