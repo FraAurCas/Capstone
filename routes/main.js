@@ -1,3 +1,4 @@
+const { json } = require('body-parser');
 const e = require('express');
 var express = require('express');
 var router = express.Router();
@@ -81,6 +82,18 @@ router.get('/', function (req, res, next) {
             if (err) throw err;
 
             res.render('main', { title: 'Policies', array: result, include_segment: include_segment, include_region: include_region, include_industry: include_industry, include_hazardGroup: include_hazardGroup, include_revenue: include_revenue, include_powerUnits: include_powerUnits, include_insurableVaue: include_insurableVaue, include_payroll: include_payroll, include_catastrophe: include_catastrophe});
+    });
+});
+
+
+router.post('/', async function (req, res, next) {
+    await console.log(req.body)
+    await con.query('DELETE FROM stringData WHERE ID =' + req.body.name,
+
+    function (err, result) {
+        if (err) throw err;
+        console.log("1 record deleted");
+
     });
 });
 

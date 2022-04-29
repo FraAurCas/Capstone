@@ -112,15 +112,4 @@ router.post('/:account_id', function (req, res, next) {
 
     });
 
-router.post('/:remove', function (req, res, next) {
-    con.query('DELETE FROM stringData WHERE ID =' + entry_ID,
-
-    function (err, result) {
-        if (err) throw err;
-        console.log("1 record deleted");
-
-        res.redirect(301, '/main');
-    });
-});
-
 module.exports = router;
