@@ -2,7 +2,7 @@
 <div class="container">
     <div id='header' class="card purple lighten-5">
         <span class="card-title">
-            <h1><center>{{0.ID}}</center></h1>
+            <h1 id="pageTitle"><center>{{0.ID}}</center></h1>
         </span>
         <div class="row center pad">
             <div class="button_wrapper col s6">
@@ -16,11 +16,12 @@
 
             <div id="confModal" class="modal">
                 <div class="modal-content">
-                    <h4>Modal Header</h4>
-                    <p>A bunch of text</p>
+                    <h4>Entry Removal Confirmation</h4>
+                    <p>Are you sure you want to remove this entry?</p>
                 </div>
                 <div class="modal-footer">
-                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+                    <a href="#" onclick="removeEntry()" class="modal-close waves-effect waves-green btn-flat">Yes, delete it</a> 
+                    <a href="#" class="modal-close waves-effect waves-green btn-flat">No wait don't</a>
                 </div>
             </div>
         </div>
@@ -140,15 +141,33 @@
         else {
             document.getElementById('editForm').style.display = 'none';
             val = true;
-        }
-            
-    };
+        }  
+    }
+
 
     function openModal() {  
         var elems = document.querySelectorAll('#confModal');
         options = {};
         var instances = M.Modal.init(elems, options);
         instances[0].open();
-    };
+    }
+
+    var href = window.location.href;
+    var len = href.length;
+
+    function removeEntry() {
+        
+        let data = {name: document.getElementById("pageTitle").innerText};
+        console.log(JSON.stringify(data));
+        fetch("/main", {
+            method: "POST", 
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+
+        window.location.href = "../main";
+    }
 
 </script>
