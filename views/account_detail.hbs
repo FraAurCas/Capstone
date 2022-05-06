@@ -4,7 +4,7 @@
         <span class="card-title">
             <h1><center>{{0.ID}}</center></h1>
         </span>
-        <div class="row center">
+        <div class="row center pad">
             <div class="button_wrapper col s6">
                 <button class="submit waves-effect waves-light btn btn-large main_color" type="submit" onclick="editEntry()">Edit Account</button>
             </div>
@@ -71,8 +71,15 @@
                 </div>
             </div>
 
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="description" class="materialize-textarea">{{0.description}}</textarea>
+                    <label for="description">Description</label>
+                </div>
+            </div>
+
             <center>
-                <div class="button_wrapper">
+                <div class="button_wrapper pad">
                     <button class="submit waves-effect waves-light btn btn-large main_color" type="submit">Submit</button>
                 </div>
             </center>
@@ -83,7 +90,7 @@
 <!--<div class="card-content">-->
 <div class="container">
 <div class="card">
-    <table class="highlight centered responsive-table">
+    <table class="highlight centered responsive-table pad">
         <thead>
             <tr>
                 <th>Broking Segment </th> 
@@ -111,9 +118,10 @@
             </tr>
         </tbody>
     </table>
+
+<div>
 </div>
-</div>
-<div class="container account-details">{{"Here we can have more text for a description"}}</div>
+<div class="container account-details">{{0.description}}</div>
 </div>
 </div>
 {{/with}}

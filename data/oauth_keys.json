@@ -1,0 +1,16 @@
+{
+    "web": {
+        "client_id": "839516934551-5me4s2phbfnictied55a0rec9d8otjlg.apps.googleusercontent.com",
+        "project_id": "wtw-insurance-viewer",
+        "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+        "token_uri": "https://oauth2.googleapis.com/token",
+        "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+        "client_secret": "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",
+        "redirect_uris": [
+            "http://localhost:3000/main"
+        ],
+        "javascript_origins": [
+            "http://localhost:3000"
+        ]
+    }
+}

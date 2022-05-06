@@ -87,10 +87,14 @@ router.post('/:account_id', function (req, res, next) {
     var entry_TIV = req.body.entry_TIV || "";
     var entry_payroll = req.body.entry_payroll || "";
     var entry_exposure = req.body.entry_exposure || "";
+    var entry_description = req.body.entry_description || "";
+
+    console.log("---------------------------------------------------------")
+    console.log(req.body);
 
     con.query(
         `UPDATE stringData 
-        SET segment = ?, region = ?, industry = ?, hazardGroup = ?, revenue = ?, powerUnits = ?, insurableValue = ?, payroll = ?, catastrophe = ? 
+        SET segment = ?, region = ?, industry = ?, hazardGroup = ?, revenue = ?, powerUnits = ?, insurableValue = ?, payroll = ?, catastrophe = ?, description = ?
         WHERE ID = ?;`,
         [entry_segment,
             entry_region,
@@ -101,7 +105,9 @@ router.post('/:account_id', function (req, res, next) {
             entry_TIV,
             entry_payroll,
             entry_exposure,
-            entry_ID],
+            entry_ID, 
+            entry_description
+        ],
         function (err, result) {
             if (err) throw err;
             console.log("1 record updated");
