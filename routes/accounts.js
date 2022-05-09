@@ -77,7 +77,7 @@ router.get('/:account_id', function (req, res, next) {
 });
 
 router.post('/:account_id', function (req, res, next) {
-    var entry_ID = Number(req.body.entry_ID || NaN);
+    var entry_ID = req.body.entry_ID || "";
     var entry_segment = req.body.entry_segment || "";
     var entry_region = req.body.entry_region || "";
     var entry_industry = req.body.entry_industry || "";
@@ -105,8 +105,8 @@ router.post('/:account_id', function (req, res, next) {
             entry_TIV,
             entry_payroll,
             entry_exposure,
-            entry_ID, 
-            entry_description
+            entry_description,
+            entry_ID
         ],
         function (err, result) {
             if (err) throw err;
