@@ -19,8 +19,9 @@ router.post('/', function(req, res, next) {
     var entry_TIV = req.body.entry_TIV || "";
     var entry_payroll = req.body.entry_payroll || "";
     var entry_exposure = req.body.entry_exposure || "";
+    var entry_description = req.body.entry_description || "";
   
-    con.query("INSERT INTO stringData VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);",
+    con.query("INSERT INTO stringData VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);",
         [entry_ID, 
           entry_segment, 
           entry_region, 
@@ -30,7 +31,8 @@ router.post('/', function(req, res, next) {
           entry_units, 
           entry_TIV, 
           entry_payroll, 
-          entry_exposure],
+          entry_exposure,
+          entry_description,],
         function (err, result) {
           if (err) throw err;
           console.log("1 record inserted");
