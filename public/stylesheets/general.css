@@ -23,11 +23,15 @@
     background-color: white;
     border-bottom: 1px solid grey;   
     position: sticky;
-    top: 85px
+    top: 64px
 }
 .pad {
     padding-bottom: 50px;
 }
 .front {
     z-index:9999;
+}
+.pad_navbar {
+    width: 90%;
+    margin: 0 auto;
 }
