@@ -51,9 +51,7 @@ router.get('/:account_id', function (req, res, next) {
     con.query(individualQueryString, function (err, result, fields) {
         if (err) throw err;
         let account = result;
-        console.log("--------------");
-        console.log(account);
-        console.log("--------------");
+        
         // console.log(account[0].name);
         // var tabName = account[0].name;
         // console.log("--------------");
