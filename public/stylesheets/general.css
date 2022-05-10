@@ -13,7 +13,7 @@
 }
 .fixed {
     position: fixed;
-    z-index:9999;
+    z-index:99;
 }
 .sticky {
     position: sticky;
@@ -22,7 +22,12 @@
 .table_head {
     background-color: white;
     border-bottom: 1px solid grey;   
+    position: sticky;
+    top: 85px
 }
 .pad {
     padding-bottom: 50px;
+}
+.front {
+    z-index:9999;
 }
