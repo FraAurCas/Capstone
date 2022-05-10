@@ -13,8 +13,6 @@ var hbs = expressHbs.create({
 
 // const hbsHelpers = require('../helpers/handlebars');
 
-console.log('===============')
-console.log(hbs.handlebars.helpers);
 
 
 //var accounts_data = require('../data/dummy_accounts');
