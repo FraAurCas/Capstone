@@ -8,7 +8,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var mainRouter = require('./routes/main');
-var loginRouter = require('./routes/login');
+//var loginRouter = require('./routes/login');
 var addingentriesRouter = require('./routes/adding-entries');
 var searchRouter = require('./routes/search');
 var fileuploadRouter = require('./routes/file-upload')
@@ -30,6 +30,24 @@ hbsHelpers.handlebars.registerHelper(hbs.helpers);
 // console.log(hbs.helpers);//------------- herehereherehere
 app.use(express.static(path.join(__dirname, '/public'))); 
 app.use(express.static(path.join(__dirname, 'node_modules/materialize-css/dist')));  
+const { auth } = require('express-openid-connect');
+
+const config = {
+  authRequired: false,
+  auth0Logout: true,
+  baseURL: 'http://localhost:3000',
+  clientID: 'SBaAruVAcDGkxT5jSBs4u5fqqMICEHpo',
+  issuerBaseURL: 'https://dev-7yxgqdsh.us.auth0.com',
+  secret: 'e96e234f5a27051e6b73232a61edb6593095e7512943dad8ae70070922e5d32f'
+};
+
+// auth router attaches /login, /logout, and /callback routes to the baseURL
+app.use(auth(config));
+
+// req.isAuthenticated is provided from the auth router
+app.get('/', (req, res) => {
+  res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out')
+});
 
 // view engine setup
 app.engine('hbs', hbsHelpers.engine); 
@@ -46,7 +64,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/main', mainRouter);
-app.use('/login', loginRouter);
+//app.use('/login', loginRouter);
 app.use('/accounts', accountsRouter);
 app.use('/adding-entries', addingentriesRouter);
 app.use('/search', searchRouter);

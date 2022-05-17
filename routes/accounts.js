@@ -1,10 +1,11 @@
 var express = require('express');
 var expressHbs = require('express-handlebars');
 var con = require('./database');
+//var isLoggedIn = require('./loginVerify');
 const { handlebars } = require('hbs');
-
+var app = require('../app');
 var router = express.Router();
-
+//isLoggedIn();
 var hbs = expressHbs.create({
     helpers: require('../helpers/handlebars').helpers,
     defaultLayout: 'layout',
@@ -12,6 +13,13 @@ var hbs = expressHbs.create({
 });
 
 // const hbsHelpers = require('../helpers/handlebars');
+
+//---------------this
+// const { requiresAuth } = require('express-openid-connect');
+
+// app.get('/profile', requiresAuth(), (req, res) => {
+//   res.send(JSON.stringify(req.oidc.user));
+// });
 
 console.log('===============')
 console.log(hbs.handlebars.helpers);
