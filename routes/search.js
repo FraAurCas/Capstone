@@ -46,10 +46,8 @@ function search_render(depth, req, res, next) { //Recursive function to deal wit
     }
 }
 
-
 router.get('/', function(req, res, next) {
     search_render(keys.length - 1, req, res, next);
 }); 
-
 
 module.exports = router;

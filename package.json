@@ -19,6 +19,8 @@
     "express-openid-connect": "^2.7.2",
     "express-session": "^1.17.2",
     "formidable": "^2.0.1",
+    "fs": "^0.0.1-security",
+    "googleapis": "^100.0.0",
     "hammerjs": "^2.0.8",
     "hbs": "^4.1.0",
     "http-errors": "~1.6.3",
@@ -27,6 +29,8 @@
     "materialize-css": "^1.0.0-rc.2",
     "morgan": "~1.9.1",
     "mysql": "^2.18.1",
+    "passport": "^0.5.2",
+    "passport-google-oauth": "^2.0.0",
     "xlsx": "^0.18.3"
   },
   "devDependencies": {

@@ -1,27 +1,7 @@
 <div class="container">
-    <div class="card purple lighten-5">
-        <div class="card-content">
-            <span class="card-title"><h1>Login:</h1></span>
-
-                
-        </div>
-
-        <div class="row">
-            <div class="input-field col s6">
-                <input type="text" id="login_id" name="login_id" class="validate" data-length="32" required>
-                <label for="login_id">Email Address / Username</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s6">
-                <input type="text" id="password" name="password" class="validate" data-length="32" required>
-                <label for="password">Password</label>
-            </div>
-        </div>
-
-        <div class="button_wrapper">
-            <button class="submit waves-effect waves-light btn" type="submit">{{#if event}}Login{{else}}Login{{/if}}</button>
-        </div>
-
+    <div class="text-center text-primary">
+        <h1><span class="fa fa-lock"></span> Social Authentication</h1>
+        <p>Login or Register with:</p>
+        <a href="/auth/google" class="btn btn-danger"><span class="fa fa-google"></span> SignIn with Google</a>
     </div>
 </div>
