@@ -11,7 +11,6 @@ var app = require('../app');
 //   res.send(JSON.stringify(req.oidc.user));
 // });
 
-
 //Us connection pools, can make multiple connections at once
 var account_data;
 
@@ -20,7 +19,7 @@ var con = require('./database');
 /* GET main page. */
 router.get('/', function (req, res, next) {
     var include_segment = (req.query.include_segment || 'true') === 'true';
-    var include_region = (req.query.include_region || 'true') === 'true';
+    var include_region = (req.query.include_region || 'true') === 'true';f
     var include_industry = (req.query.include_industry || 'true') === 'true';
     var include_hazardGroup = (req.query.include_hazardGroup || 'true') === 'true';
     var include_revenue = (req.query.include_revenue || 'true') === 'true';

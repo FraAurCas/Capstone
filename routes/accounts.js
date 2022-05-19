@@ -95,6 +95,8 @@ router.post('/:account_id', function (req, res, next) {
     var entry_exposure = req.body.entry_exposure || "";
     var entry_description = req.body.entry_description || "";
 
+    
+
     console.log("---------------------------------------------------------")
     console.log(req.body);
 
