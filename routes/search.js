@@ -5,7 +5,7 @@ var async = require('async');
 var con = require('./database');
 
 var router = express.Router();
-
+const { requiresAuth } = require('express-openid-connect');
 var hbs = expressHbs.create({
     helpers: require('../helpers/handlebars').helpers,
     defaultLayout: 'layout',
@@ -46,7 +46,7 @@ function search_render(depth, req, res, next) { //Recursive function to deal wit
     }
 }
 
-router.get('/', function(req, res, next) {
+router.get('/', requiresAuth(), (req, res, next) => {
     search_render(keys.length - 1, req, res, next);
 }); 
 

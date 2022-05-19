@@ -5,11 +5,7 @@ var express = require('express');
 var router = express.Router();
 var app = require('../app');
 //-------------------this below
-// const { requiresAuth } = require('express-openid-connect');
-
-// app.get('/profile', requiresAuth(), (req, res) => {
-//   res.send(JSON.stringify(req.oidc.user));
-// });
+const { requiresAuth } = require('express-openid-connect');
 
 //Us connection pools, can make multiple connections at once
 var account_data;
@@ -17,7 +13,7 @@ var account_data;
 var con = require('./database');
 
 /* GET main page. */
-router.get('/', function (req, res, next) {
+router.get('/', requiresAuth(), (req, res, next) => {
     var include_segment = (req.query.include_segment || 'true') === 'true';
     var include_region = (req.query.include_region || 'true') === 'true';f
     var include_industry = (req.query.include_industry || 'true') === 'true';

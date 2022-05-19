@@ -14,12 +14,7 @@ var hbs = expressHbs.create({
 
 // const hbsHelpers = require('../helpers/handlebars');
 
-//---------------this
-// const { requiresAuth } = require('express-openid-connect');
-
-// app.get('/profile', requiresAuth(), (req, res) => {
-//   res.send(JSON.stringify(req.oidc.user));
-// });
+const { requiresAuth } = require('express-openid-connect');
 
 console.log('===============')
 console.log(hbs.handlebars.helpers);
@@ -48,7 +43,7 @@ console.log(hbs.handlebars.helpers);
 
 
 //GET the detailed pages from the database
-router.get('/:account_id', function (req, res, next) {
+router.get('/:account_id', requiresAuth(), (req, res, next) => {
     let account_id = req.params.account_id;
     var individualQueryString = "SELECT * FROM stringData WHERE ID = " + account_id + " LIMIT 1;";
     console.log(account_id);
@@ -82,7 +77,7 @@ router.get('/:account_id', function (req, res, next) {
 
 });
 
-router.post('/:account_id', function (req, res, next) {
+router.post('/:account_id', requiresAuth(), (req, res, next) => {
     var entry_ID = req.body.entry_ID || "";
     var entry_segment = req.body.entry_segment || "";
     var entry_region = req.body.entry_region || "";
