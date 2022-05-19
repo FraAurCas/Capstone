@@ -72,41 +72,6 @@ app.use('/adding-entries', addingentriesRouter);
 app.use('/search', searchRouter);
 app.use('/file-upload', fileuploadRouter);
 
-//Login stuff
-app.use(session({ secret: oauth.web.client_secret }));
-
-app.use(passport.initialize());
-app.use(passport.session());
-
-app.get('/success', (req, res) => res.send(userProfile));
-app.get('/error', (req, res) => res.send("error logging in"));
-
-passport.serializeUser(function (user, cb) {
-  cb(null, user);
-});
-
-passport.deserializeUser(function (obj, cb) {
-  cb(null, obj);
-});
-
-const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-const GOOGLE_CLIENT_ID = oauth.web.client_id;
-const GOOGLE_CLIENT_SECRET = oauth.web.client_secret;
-
-passport.use(new GoogleStrategy({
-  clientID: GOOGLE_CLIENT_ID,
-  clientSecret: GOOGLE_CLIENT_SECRET,
-  callbackURL: "http://localhost:3000/main"
-},
-  function (accessToken, refreshToken, profile, done) {
-    userProfile = profile;
-    return done(null, userProfile);
-  }
-));
-
-app.get('/auth/google',
-  passport.authenticate('google', { scope: ['profile', 'email'] }));
-
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
