@@ -2,12 +2,12 @@ var express = require('express');
 var router = express.Router();
 var con = require('./database');
 var xlsx = require("xlsx");
-
-router.get('/', function(req, res, next) {
+const { requiresAuth } = require('express-openid-connect');
+router.get('/', requiresAuth(), (req, res, next) => {
   res.render('adding-entries', { title: 'Adding Entries' });
 });
     
-router.post('/', function(req, res, next) {
+router.post('/', requiresAuth(), (req, res, next) => {
 
     var entry_ID = Number(req.body.entry_ID || NaN);
     var entry_segment = req.body.entry_segment || "";
