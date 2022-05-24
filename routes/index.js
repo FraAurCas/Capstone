@@ -6,7 +6,8 @@ const { requiresAuth } = require('express-openid-connect');
 router.get('/', function (req, res, next) {
   res.render('index', {
     title: 'Willis Towers Watson Account Database Display',
-    isAuthenticated: req.oidc.isAuthenticated()
+    isAuthenticated: req.oidc.isAuthenticated(),
+    notAuthenticated: !req.oidc.isAuthenticated(),
   });
 });
 
