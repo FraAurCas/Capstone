@@ -78,7 +78,7 @@ router.get('/', requiresAuth(), (req, res, next) => {
     }
     */
 
-    query_string += ";";
+    query_string += "ORDER BY ID ASC;";
 
     con.query(query_string,
         search_params,

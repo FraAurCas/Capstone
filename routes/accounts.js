@@ -45,7 +45,7 @@ console.log(hbs.handlebars.helpers);
 //GET the detailed pages from the database
 router.get('/:account_id', requiresAuth(), (req, res, next) => {
     let account_id = req.params.account_id;
-    var individualQueryString = "SELECT * FROM stringData WHERE ID = " + account_id + " LIMIT 1;";
+    var individualQueryString = "SELECT * FROM stringData WHERE ID = \"" + account_id + "\" LIMIT 1;";
     console.log(account_id);
     //    var individualQueryString = "SELECT "+ account_id+" FROM test_accounts";
     //    var individualQueryString = "SELECT * WHERE id BETWEEN "+ account_id+" AND "+ 1 + " FROM test_accounts";
@@ -98,7 +98,7 @@ router.post('/:account_id', requiresAuth(), (req, res, next) => {
     con.query(
         `UPDATE stringData
         SET segment = ?, region = ?, industry = ?, hazardGroup = ?, revenue = ?, powerUnits = ?, insurableValue = ?, payroll = ?, catastrophe = ?, description = ?
-        WHERE ID = ?;`,
+        WHERE ID = ?;`, //TODO: This doesn't work with changing ID. Fix this before handoff
         [entry_segment,
             entry_region,
             entry_industry,
