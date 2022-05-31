@@ -34,9 +34,10 @@ router.post('/', function(req, res, next) {
 });
 
 function uploadEntry(a) {
+  a.push("");
 
   con.query("INSERT INTO stringData VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);",
-      a.push(""),
+      a,
       function (err, result) {
         if (err) throw err;
         console.log("1 record inserted");
