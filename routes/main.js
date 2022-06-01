@@ -24,16 +24,17 @@ router.get('/', requiresAuth(), (req, res, next) => {
     var include_payroll = (req.query.include_payroll || 'true') === 'true';
     var include_catastrophe = (req.query.include_catastrophe || 'true') === 'true';
 
-    var search_params = ["", "", "", "", "", "", "", "", ""];
-    search_params[0] = "%" + (req.query.segment_constraint || '') + "%";
-    search_params[1] = "%" + (req.query.region_constraint || '') + "%";
-    search_params[2] = "%" + (req.query.industry_constraint || '') + "%";
-    search_params[3] = "%" + (req.query.hazardGroup_constraint || '') + "%";
-    search_params[4] = "%" + (req.query.revenue_constraint || '') + "%";
-    search_params[5] = "%" + (req.query.powerUnits_constraint || '') + "%";
-    search_params[6] = "%" + (req.query.insurableValue_constraint || '') + "%";
-    search_params[7] = "%" + (req.query.payroll_constraint || '') + "%";
-    search_params[8] = "%" + (req.query.catastrophe_constraint || '') + "%";
+    var search_params = ["", "", "", "", "", "", "", "", "", ""];
+    search_params[0] = "%" + (req.query.ID_constraint || '') + "%";
+    search_params[1] = "%" + (req.query.segment_constraint || '') + "%";
+    search_params[2] = "%" + (req.query.region_constraint || '') + "%";
+    search_params[3] = "%" + (req.query.industry_constraint || '') + "%";
+    search_params[4] = "%" + (req.query.hazardGroup_constraint || '') + "%";
+    search_params[5] = "%" + (req.query.revenue_constraint || '') + "%";
+    search_params[6] = "%" + (req.query.powerUnits_constraint || '') + "%";
+    search_params[7] = "%" + (req.query.insurableValue_constraint || '') + "%";
+    search_params[8] = "%" + (req.query.payroll_constraint || '') + "%";
+    search_params[9] = "%" + (req.query.catastrophe_constraint || '') + "%";
 
     console.log(search_params[8]);
 
@@ -69,7 +70,7 @@ router.get('/', requiresAuth(), (req, res, next) => {
 
     query_string += " FROM stringData";
 
-    query_string += " WHERE segment LIKE ? AND region LIKE ? AND industry LIKE ? AND hazardGroup LIKE ? AND revenue LIKE ? AND powerUnits LIKE ? AND insurableValue LIKE ? AND payroll LIKE ? AND catastrophe LIKE ?"
+    query_string += " WHERE ID LIKE ? AND segment LIKE ? AND region LIKE ? AND industry LIKE ? AND hazardGroup LIKE ? AND revenue LIKE ? AND powerUnits LIKE ? AND insurableValue LIKE ? AND payroll LIKE ? AND catastrophe LIKE ?"
 
     /*
     if (segment_constraint !== '') {
