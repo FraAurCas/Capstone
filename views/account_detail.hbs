@@ -90,40 +90,42 @@
 </div>
 <!--<div class="card-content">-->
 <div class="container">
-<div class="card">
-    <table class="highlight centered responsive-table pad">
-        <thead>
-            <tr>
-                <th>Broking Segment </th> 
-                <th>Broking Region </th>
-                <th>Industry</th>
-                <th>Hazard Group</th>
-                <th>Revenue</th>
-                <th>Power Units</th>
-                <th>Insurable Value</th>
-                <th>Payroll</th>
-                <th>Catastrophe Exposure</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>{{0.segment}}</td>
-                <td>{{0.region}}</td>
-                <td>{{0.industry}}</td>
-                <td>{{0.hazardGroup}}</td>
-                <td>{{0.revenue}}</td>
-                <td>{{0.powerUnits}}</td>
-                <td>{{0.insurableValue}}</td>
-                <td>{{0.payroll}}</td>  
-                <td>{{0.catastrophe}}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="card">
+        <table class="highlight centered responsive-table pad">
+            <thead>
+                <tr>
+                    <th>Broking Segment </th> 
+                    <th>Broking Region </th>
+                    <th>Industry</th>
+                    <th>Hazard Group</th>
+                    <th>Revenue</th>
+                    <th>Power Units</th>
+                    <th>Insurable Value</th>
+                    <th>Payroll</th>
+                    <th>Catastrophe Exposure</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{0.segment}}</td>
+                    <td>{{0.region}}</td>
+                    <td>{{0.industry}}</td>
+                    <td>{{0.hazardGroup}}</td>
+                    <td>{{0.revenue}}</td>
+                    <td>{{0.powerUnits}}</td>
+                    <td>{{0.insurableValue}}</td>
+                    <td>{{0.payroll}}</td>  
+                    <td>{{0.catastrophe}}</td>
+                </tr>
+            </tbody>
+        </table>
 
-<div>
-</div>
-<div class="container account-details">{{0.description}}</div>
-</div>
+        <div> </div>
+        
+    </div>
+    <div class="container account-details">
+        <b>Desctiption:</b> <p>{{0.description}}</p>
+    </div>
 </div>
 {{/with}}
 
