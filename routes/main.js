@@ -27,13 +27,13 @@ router.get('/', requiresAuth(), (req, res, next) => {
     var search_params = ["", "", "", "", "", "", "", "", "", ""];
     search_params[0] = "%" + (req.query.ID_constraint || '') + "%";
     search_params[1] = "%" + (req.query.segment_constraint || '') + "%";
-    search_params[2] = "%" + (req.query.region_constraint || '') + "%";
+    search_params[2] = (req.query.region_constraint || '%');
     search_params[3] = "%" + (req.query.industry_constraint || '') + "%";
-    search_params[4] = "%" + (req.query.hazardGroup_constraint || '') + "%";
-    search_params[5] = "%" + (req.query.revenue_constraint || '') + "%";
-    search_params[6] = "%" + (req.query.powerUnits_constraint || '') + "%";
-    search_params[7] = "%" + (req.query.insurableValue_constraint || '') + "%";
-    search_params[8] = "%" + (req.query.payroll_constraint || '') + "%";
+    search_params[4] = (req.query.hazardGroup_constraint || '%');
+    search_params[5] = (req.query.revenue_constraint || '%');
+    search_params[6] = (req.query.powerUnits_constraint || '%');
+    search_params[7] = (req.query.insurableValue_constraint || '%');
+    search_params[8] = (req.query.payroll_constraint || '%');
     search_params[9] = "%" + (req.query.catastrophe_constraint || '') + "%";
 
     console.log(search_params[8]);
