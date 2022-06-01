@@ -93,7 +93,7 @@ router.get('/', requiresAuth(), (req, res, next) => {
 
 router.post('/', async function (req, res, next) {
     await console.log(req.body)
-    await con.query('DELETE FROM stringData WHERE ID =' + req.body.name,
+    await con.query('DELETE FROM stringData WHERE ID = \'' + req.body.name + '\'',
 
     function (err, result) {
         if (err) throw err;

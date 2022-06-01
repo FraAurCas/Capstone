@@ -30,6 +30,7 @@ router.post('/', function(req, res, next) {
         uploadEntry(entry);
       }
     }
+    res.render('adding-entries', { title: 'Adding-Entries' });
   })
 });
 
