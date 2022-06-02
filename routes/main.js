@@ -91,7 +91,7 @@ router.get('/', requiresAuth(), (req, res, next) => {
 });
 
 
-router.post('/', async function (req, res, next) {
+router.post('/', async function (req, res, next) { //Delete is a post to main, for some reason
     await console.log(req.body)
     await con.query('DELETE FROM stringData WHERE ID = \'' + req.body.name + '\'',
 
