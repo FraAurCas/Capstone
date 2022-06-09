@@ -33,6 +33,8 @@
 </p>
 
 ## Table of Contents
+- [Project Setup](#setup)
+Materialize README:
 - [Quickstart](#quickstart)
 - [Documentation](#documentation)
 - [Supported Browsers](#supported-browsers)
@@ -40,6 +42,17 @@
 - [Testing](#testing)
 - [Contributing](#contributing)
 - [Copyright and license](#copyright-and-license)
+
+## Project Setup:
+This program requires hosting itself as well as a MySQL database. 
+
+The MySQL database must contain the following:
+- A table named "stringData"
+- stringdata must have columns "ID", "segment", "region", "industry", "hazardGroup", "revenue", "powerUnits", "insurableValue", "payroll", "catastrophe", "description"
+- All columns should be varchar(255), except description, which should be varchar(65535)
+
+To connect the MySQL database to the webserver, edit routs/database.js. Host should be changed to the domain name or IP of the hosted database. User and password should be changed to that of an authorized user of the database. Database should be changed to the name of the database. 
+
 
 ## Quickstart:
 Read the [getting started guide](http://materializecss.com/getting-started.html) for more information on how to use materialize.
