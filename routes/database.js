@@ -1,9 +1,9 @@
 var mysql = require('mysql');
 var con = mysql.createConnection({
-    host: "devdb.c9lxwufrjy46.us-east-1.rds.amazonaws.com",
-    user: "root",
-    password: "Cas2Boh2Mas",
-    database: "DevDB"
+    host: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    user: "XXXXXXXXXXXXXXXX",
+    password: "XXXXXXXXXXXXXXXX",
+    database: "XXXXXXXXXXXXXXXX"
 });
 //const { requiresAuth } = require('express-openid-connect');
 con.connect(function (err) {

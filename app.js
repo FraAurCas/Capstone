@@ -37,10 +37,10 @@ const { auth } = require('express-openid-connect');
 const config = {
   authRequired: false,
   auth0Logout: true,
-  baseURL: 'https://digital-data-display.herokuapp.com/',
-  clientID: 'SBaAruVAcDGkxT5jSBs4u5fqqMICEHpo',
-  issuerBaseURL: 'https://dev-7yxgqdsh.us.auth0.com',
-  secret: 'e96e234f5a27051e6b73232a61edb6593095e7512943dad8ae70070922e5d32f'
+  baseURL: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+  clientID: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+  issuerBaseURL: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+  secret: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
 };
 
 // auth router attaches /login, /logout, and /callback routes to the baseURL
