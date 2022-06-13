@@ -5,8 +5,8 @@ var con = mysql.createConnection({
     password: "Cas2Boh2Mas",
     database: "DevDB"
 });
-
-con.connect(function(err) {
+//const { requiresAuth } = require('express-openid-connect');
+con.connect(function (err) {
     if (err) throw err;
     console.log('Database is connected successfully !');
   });

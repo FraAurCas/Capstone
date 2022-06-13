@@ -52,7 +52,7 @@ The MySQL database must contain the following:
 - stringdata must have columns "ID", "segment", "region", "industry", "hazardGroup", "revenue", "powerUnits", "insurableValue", "payroll", "catastrophe", "description"
 - All columns should be varchar(255), except description, which should be varchar(65535)
 
-To connect the MySQL database to the webserver, edit routs/database.js. Host should be changed to the domain name or IP of the hosted database. User and password should be changed to that of an authorized user of the database. Database should be changed to the name of the database.
+To connect the MySQL database to the webserver, edit routs/database.js. Host should be changed to the domain name or IP of the hosted database. User and password should be changed to that of an authorized user of the database. Database should be changed to the name of the database. The password should be stored as an environment variable, rather than plain text. Follow [this guide](https://docs.oracle.com/en/database/oracle/machine-learning/oml4r/1.5.1/oread/creating-and-modifying-environment-variables-on-windows.html#GUID-DD6F9982-60D5-48F6-8270-A27EC53807D0) and create an environment variable to replace the secret to avoid having it in plain text.
 
 ## Authentication Setup
 Login and authentication is set up through [Auth0](https://www.Auth0.com).

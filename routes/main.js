@@ -91,9 +91,9 @@ router.get('/', requiresAuth(), (req, res, next) => {
 });
 
 
-router.post('/', async function (req, res, next) { //Delete is a post to main, for some reason
-    await console.log(req.body)
-    await con.query('DELETE FROM stringData WHERE ID = \'' + req.body.name + '\'',
+router.post('/', requiresAuth(), (req, res, next) => { //Delete is a post to main, for some reason
+    console.log(req.body)
+    con.query('DELETE FROM stringData WHERE ID = \'' + req.body.name + '\'',
 
     function (err, result) {
         if (err) throw err;

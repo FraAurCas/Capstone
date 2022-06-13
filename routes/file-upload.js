@@ -4,12 +4,14 @@ var con = require('./database');
 var XLSX = require("xlsx");
 var formidable = require('formidable');
 
-router.get('/', function(req, res, next) {
+const { requiresAuth } = require('express-openid-connect');
+
+router.get('/', requiresAuth(), (req, res, next) => {
   res.render('file-upload', { title: 'File Upload' });
 });
     
-router.post('/', function(req, res, next) {
-
+router.post('/', requiresAuth(), (req, res, next) => {
+try{
   new formidable.IncomingForm().parse(req, (err, fields, files) => {
     if (err) {
       console.error('Error', err)
@@ -31,7 +33,10 @@ router.post('/', function(req, res, next) {
       }
     }
     res.render('adding-entries', { title: 'Adding-Entries' });
-  })
+  })}
+  catch{
+    
+  }
 });
 
 function uploadEntry(a) {
