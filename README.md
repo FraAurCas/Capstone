@@ -34,6 +34,7 @@
 
 ## Table of Contents
 - [Project Setup](#setup)
+
 Materialize README:
 - [Quickstart](#quickstart)
 - [Documentation](#documentation)
@@ -44,16 +45,41 @@ Materialize README:
 - [Copyright and license](#copyright-and-license)
 
 ## Project Setup:
-This program requires hosting itself as well as a MySQL database. 
+This program requires hosting itself as well as a MySQL database.
 
 The MySQL database must contain the following:
 - A table named "stringData"
 - stringdata must have columns "ID", "segment", "region", "industry", "hazardGroup", "revenue", "powerUnits", "insurableValue", "payroll", "catastrophe", "description"
 - All columns should be varchar(255), except description, which should be varchar(65535)
 
-To connect the MySQL database to the webserver, edit routs/database.js. Host should be changed to the domain name or IP of the hosted database. User and password should be changed to that of an authorized user of the database. Database should be changed to the name of the database. 
+To connect the MySQL database to the webserver, edit routs/database.js. Host should be changed to the domain name or IP of the hosted database. User and password should be changed to that of an authorized user of the database. Database should be changed to the name of the database.
 
-
+## Authentication Setup
+Login and authentication is set up through [Auth0](https://www.Auth0.com).
+- [Create](https://auth0.com/signup?&signUpData=%7B%22category%22%3A%22docs%22%7D) an account
+  - Select the "As a Company" option
+- [Create](https://manage.auth0.com/dashboard) an application.
+  - Name the application in the box at the top
+  - Select "Regular Web Applications"
+  - Click "Create"
+  - Search and select "Node.js (Express)"
+  - Select "Integrate Now" under "I want to integrate with my app" on the left side.
+  - Replace the URL under "Allowed Callback URL" and "Allowed Logout URLs" with the URL of the hosted website.
+  - Click "SAVE SETTINGS AND CONTINUE"
+- Configure the web application
+  - The following steps have already been done for a different Auth0 account. Information needs to be replaced with new information for this account.
+  - Skip the install dependencies steps
+  - Copy the code in the "Configure Router" section and paste it over the similar code that is already found in /app.js
+  - Follow [this guide](https://docs.oracle.com/en/database/oracle/machine-learning/oml4r/1.5.1/oread/creating-and-modifying-environment-variables-on-windows.html#GUID-DD6F9982-60D5-48F6-8270-A27EC53807D0) and create an environment variable to replace the secret to avoid having it in plain text.
+  - Click "NEXT: TEST YOUR LOGIN"
+  - You can test that the login works here and see any outputted logs.
+  - The next step is to verify that users are logged in. This has already been implemented into the project so this step is done.
+- Add a rule to restrict access
+  - [Return to the dashboard](https://manage.auth0.com/dashboard) and go to Auth Pipeline -> Rules
+  - Click "Create"
+  - Add the "Email domain whitelist" rule
+  - Replace the line 7 in the "Script" section with demo const whitelist = ['willistowerswatson.com']; //authorized domains
+  - Click "Save changes"
 ## Quickstart:
 Read the [getting started guide](http://materializecss.com/getting-started.html) for more information on how to use materialize.
 
